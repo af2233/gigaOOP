@@ -2,3 +2,5 @@ __pycache__/
 venv/
 /.idea/
 /backend/sql_app/gigaOOP_database.db
+/gigaOOP.db
+/hashing.py
