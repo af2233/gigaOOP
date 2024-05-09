@@ -3,6 +3,8 @@ from sqlalchemy import Column, Integer, String, ForeignKey, Float
 from database import Base
 
 
+# основные таблицы
+
 class User(Base):  # таблица пользователей
     __tablename__ = 'users'
 
@@ -10,7 +12,7 @@ class User(Base):  # таблица пользователей
     name = Column(String)
     email = Column(String, unique=True, index=True)
     password = Column(String)
-    login = Column(String)
+    login = Column(String, unique=True)
     status = Column(Integer, default=0)
 
 
@@ -36,7 +38,15 @@ class UserCourseProgress(Base):  # прогресс пользователя п�
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey(User.id))
     course_id = Column(Integer, ForeignKey(Course.id))
-    last_theme_index = Column(Integer)  # тут надо что-то придумать
+    last_theme_index = Column(Integer)  # max(order) from themes where course_id == themes.course_id
+
+
+class Relation(Base):  # таблица связей студентов и преподавателей
+    __tablename__ = 'relations'
+
+    id = Column(Integer, primary_key=True)
+    user_id = Column(Integer, ForeignKey(User.id))
+    teacher_id = Column(Integer, ForeignKey(Course.id))  # user status == 1
 
 
 # таблицы, относящиеся к разделу 'Задачи'
@@ -70,6 +80,7 @@ class UserTaskProgress(Base):  # прогресс по задачам внутр
 
 
 # таблицы, относящиеся к разделу 'Опросы'
+
 class Quiz(Base):  # таблица викторин
     __tablename__ = 'quizzes'
 
