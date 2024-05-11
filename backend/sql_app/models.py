@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, Float
+from sqlalchemy import Column, Integer, String, ForeignKey, Float, Text, Boolean
 
 from .database import Base
 
@@ -8,11 +8,11 @@ from .database import Base
 class User(Base):  # таблица пользователей
     __tablename__ = 'users'
 
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String)
-    email = Column(String, unique=True, index=True)
-    password = Column(String)
-    login = Column(String, unique=True)
+    id = Column(Integer, primary_key=True, autoincrement=True, index=True)
+    name = Column(String, nullable=False)
+    email = Column(String, unique=True, index=True, nullable=False)
+    password = Column(String, nullable=False)
+    login = Column(String, unique=True, nullable=False)
     status = Column(Integer, default=0)
 
 
@@ -20,14 +20,14 @@ class Course(Base):  # таблица курсов
     __tablename__ = 'courses'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String)
+    name = Column(String, nullable=False)
 
 
 class Theme(Base):  # таблица тем
     __tablename__ = 'themes'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String)
+    name = Column(String, nullable=False)
     course_id = Column(Integer, ForeignKey(Course.id))
     order = Column(Integer)
 
@@ -46,7 +46,7 @@ class Relation(Base):  # таблица связей студентов и пр�
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     user_id = Column(Integer, ForeignKey(User.id))
-    teacher_id = Column(Integer, ForeignKey(Course.id))  # user status == 1
+    teacher_id = Column(Integer, ForeignKey(Course.id))
 
 
 # таблицы, относящиеся к разделу 'Задачи'
@@ -56,8 +56,8 @@ class Task(Base):  # таблица задач
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     theme_id = Column(Integer, ForeignKey(Theme.id))
-    task_name = Column(String)
-    description = Column(String)
+    name = Column(String, nullable=False)
+    description = Column(Text, nullable=True)
 
 
 class UserTaskAnswer(Base):  # ответы пользователя на задачу
@@ -66,8 +66,8 @@ class UserTaskAnswer(Base):  # ответы пользователя на зад
     id = Column(Integer, primary_key=True, autoincrement=True)
     user_id = Column(Integer, ForeignKey(User.id))
     task_id = Column(Integer, ForeignKey(Task.id))
-    code_text = Column(String)
-    isCorrect = Column(Integer)
+    code_text = Column(Text)
+    isCorrect = Column(Boolean, default=False)
 
 
 class UserTaskProgress(Base):  # прогресс по задачам внутри темы
@@ -77,6 +77,8 @@ class UserTaskProgress(Base):  # прогресс по задачам внутр
     user_id = Column(Integer, ForeignKey(User.id))
     theme_id = Column(Integer, ForeignKey(Theme.id))
     progress = Column(Float)
+    # count (select isCorrect from user_tasks_answers where theme_id == theme.id)
+    # / count (select * from user_tasks_answers where theme_id == theme.id)
 
 
 # таблицы, относящиеся к разделу 'Опросы'
@@ -93,7 +95,7 @@ class Quiestion(Base):  # таблица вопросов
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     quiz_id = Column(Integer, ForeignKey(Quiz.id))
-    quiestion_text = Column(String)
+    quiestion_text = Column(String, nullable=False)
 
 
 class Answer(Base):  # таблица ответов
@@ -101,7 +103,7 @@ class Answer(Base):  # таблица ответов
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     quiz_id = Column(Integer, ForeignKey(Quiz.id))
-    quiestion_text = Column(String)
+    answer_text = Column(String, nullable=False)
 
 
 class UserQuiestionAnswer(Base):  # ответы пользователя на вопрос
@@ -111,7 +113,7 @@ class UserQuiestionAnswer(Base):  # ответы пользователя на �
     user_id = Column(Integer, ForeignKey(User.id))
     quiestion_id = Column(Integer, ForeignKey(Quiestion.id))
     quiz_id = Column(Integer, ForeignKey(Quiz.id))
-    isCorrect = Column(Integer)
+    isCorrect = Column(Boolean, default=False)
 
 
 class UserQuizProgress(Base):  # прогресс пользователя по викторине
@@ -121,3 +123,5 @@ class UserQuizProgress(Base):  # прогресс пользователя по 
     user_id = Column(Integer, ForeignKey(User.id))
     quiz_id = Column(Integer, ForeignKey(Theme.id))
     progress = Column(Float)
+    # count (select isCorrect from user_tasks_answers where course_id = course.id)
+    # / count (select * from user_tasks_answers where course_id = course.id)
