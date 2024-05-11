@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, Float, Text, Boolean
 
-from .database import Base
+from backend.app.session import Base
 
 
 # основные таблицы
