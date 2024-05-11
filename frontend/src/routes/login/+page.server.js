@@ -16,7 +16,7 @@ export const actions = {
 			password: password
 		};
 
-		const response = await fetch('${BASE_URL}/login', {
+		const response = await fetch('${BASE_URL}/register', {
 			method: 'POST',
 			headers: {
 			'Content-Type': 'application/json'

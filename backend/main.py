@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
+# from . import crud, models, schemas
 
 app = FastAPI()
 
@@ -21,3 +21,7 @@ app.add_middleware(
 @app.get("/")
 def read_root():
     return {'Hello': 'World'}
+
+@app.post("/users")
+def create_user(user: User):
+    pass
