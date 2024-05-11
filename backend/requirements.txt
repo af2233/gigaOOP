@@ -2,3 +2,11 @@ fastapi==0.111.0
 uvicorn==0.29.0
 SQLAlchemy==2.0.30
 alembic==1.13.1
+pydantic[email]
+passlib[bcrypt]
+pytest==7.4.0
+httpx==0.24.1
+pre-commit==3.3.3
+python-jose==3.3.0
+python-multipart==0.0.7
+black==23.11.0
