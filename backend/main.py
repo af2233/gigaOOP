@@ -1,10 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from backend.app.models import Base
-from backend.core.config import settings
-from backend.app.routes import router
-from backend.app.session import engine
+from app.models import Base
+from core.config import settings
+from app.routes import router
+from app.session import engine
 
 
 Base.metadata.create_all(bind=engine)

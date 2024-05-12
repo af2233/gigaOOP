@@ -1,8 +1,8 @@
 from fastapi import Depends, HTTPException, APIRouter
 
-from backend.app.crud import *
-from backend.app.schemas import User, UserCreate
-from backend.app.session import get_db
+from .crud import *
+from .schemas import User, UserCreate
+from .session import get_db
 
 
 router = APIRouter(prefix='/users', tags=['User'])

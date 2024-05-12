@@ -1,7 +1,7 @@
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session # type: ignore
 
-from backend.app import models, schemas
-from backend.core.hashing import Hash
+from . import models, schemas
+from core.hashing import Hash
 
 
 def get_user(db: Session, user_id: int):
