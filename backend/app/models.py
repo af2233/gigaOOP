@@ -9,7 +9,7 @@ class User(Base):  # таблица пользователей
     __tablename__ = 'users'
 
     id = Column(Integer, primary_key=True, autoincrement=True, index=True)
-    name = Column(String, nullable=False)
+    name = Column(String, nullable=True)
     email = Column(String, unique=True, index=True, nullable=False)
     password = Column(String, nullable=False)
     login = Column(String, unique=True, nullable=False)
