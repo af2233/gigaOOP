@@ -22,7 +22,7 @@ def create_user(db: Session, user: schemas.UserCreate):
     hashed_password = Hash.hash_password(user.password)  # хеширование пароля
     hashed_login = Hash.hash_login(user.login)  # хеширование логина
 
-    db_user = models.User(name=user.name, email=hashed_email, password=hashed_password, login=hashed_login)
+    db_user = models.User(email=hashed_email, password=hashed_password, login=hashed_login)
     db.add(db_user)
     db.commit()
     db.refresh(db_user)
