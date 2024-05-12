@@ -76,7 +76,7 @@ class UserTaskProgress(Base):  # прогресс по задачам внутр
     id = Column(Integer, primary_key=True, autoincrement=True)
     user_id = Column(Integer, ForeignKey(User.id))
     theme_id = Column(Integer, ForeignKey(Theme.id))
-    progress = Column(Float)
+    progress = Column(Float, default=0)
     # count (select isCorrect from user_tasks_answers where theme_id == theme.id)
     # / count (select * from user_tasks_answers where theme_id == theme.id)
 
@@ -122,6 +122,6 @@ class UserQuizProgress(Base):  # прогресс пользователя по 
     id = Column(Integer, primary_key=True, autoincrement=True)
     user_id = Column(Integer, ForeignKey(User.id))
     quiz_id = Column(Integer, ForeignKey(Theme.id))
-    progress = Column(Float)
+    progress = Column(Float, default=0)
     # count (select isCorrect from user_tasks_answers where course_id = course.id)
     # / count (select * from user_tasks_answers where course_id = course.id)
