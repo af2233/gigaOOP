@@ -2,11 +2,15 @@ from pydantic import BaseModel, EmailStr, Field
 
 
 class UserBase(BaseModel):
+    # name: str | None = None
     email: EmailStr
+    password: str = Field(..., min_length=4)
+    login: str
+    
 
 
 class UserCreate(UserBase):
-    name: str | None = None
+    email: EmailStr
     password: str = Field(..., min_length=4)
     login: str
 

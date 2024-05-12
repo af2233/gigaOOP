@@ -9,7 +9,7 @@ router = APIRouter(prefix='/users', tags=['User'])
 
 
 @router.post('/', response_model=User)
-def create_user(user: UserCreate, db: Session = Depends(get_db)):
+def post_user(user: UserCreate, db: Session = Depends(get_db)):
     db_user = get_user_by_email(db, email=user.email)
 
     if db_user:

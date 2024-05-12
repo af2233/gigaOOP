@@ -1,11 +1,14 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+import logging
 
 from app.models import Base
 from core.config import settings
 from app.routes import router
 from app.session import engine
 
+# Настройка логирования
+logging.basicConfig(level=logging.DEBUG)
 
 Base.metadata.create_all(bind=engine)
 
