@@ -1,7 +1,7 @@
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session # type: ignore
 
 from . import models, schemas
-from backend import fun_for_hash_data as hashing
+from core.hashing import Hash
 
 
 def get_user(db: Session, user_id: int):
@@ -18,9 +18,9 @@ def get_user_by_login(db: Session, login: str):
 
 def create_user(db: Session, user: schemas.UserCreate):
 
-    hashed_email = hashing.hash_email(user.email)  # хеширование почты
-    hashed_password = hashing.hash_password(user.password)  # хеширование пароля
-    hashed_login = hashing.hash_login(user.login)  # хеширование логина
+    hashed_email = Hash.hash_email(user.email)  # хеширование почты
+    hashed_password = Hash.hash_password(user.password)  # хеширование пароля
+    hashed_login = Hash.hash_login(user.login)  # хеширование логина
 
     db_user = models.User(email=hashed_email, password=hashed_password, login=hashed_login)
     db.add(db_user)
@@ -39,7 +39,7 @@ def delete_user(db: Session, user_id: int):
 def update_email(db: Session, user_id: int, email: str):
     db_user = db.query(models.User).filter(models.User.id == user_id).first()
 
-    hashed_email = hashing.hash_email(email)  # хеширование почты
+    hashed_email = Hash.hash_email(email)  # хеширование почты
 
     db_user.email = hashed_email
     db.commit()
@@ -50,7 +50,7 @@ def update_email(db: Session, user_id: int, email: str):
 def update_password(db: Session, user_id: int, password: str):
     db_user = db.query(models.User).filter(models.User.id == user_id).first()
 
-    hashed_password = hashing.hash_password(password)  # хеширование пароля
+    hashed_password = Hash.hash_password(password)  # хеширование пароля
 
     db_user.password = hashed_password
     db.commit()
@@ -61,7 +61,7 @@ def update_password(db: Session, user_id: int, password: str):
 def update_login(db: Session, user_id: int, login: str):
     db_user = db.query(models.User).filter(models.User.id == user_id).first()
 
-    hashed_login = hashing.hash_login(login)  # хеширование логина
+    hashed_login = Hash.hash_login(login)  # хеширование логина
 
     db_user.login = hashed_login
     db.commit()
