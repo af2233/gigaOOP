@@ -3,7 +3,8 @@ class Settings:
     PROJECT_VERSION: str = '0.0.1'
 
     SQLITE_DB = '/backend/gigaOOP_database.db'
-    DATABASE_URL = f'sqlite://{SQLITE_DB}'
+    DATABASE_URL = f'sqlite+aiosqlite://{SQLITE_DB}'
+    SECRET = 'eyJzdWIiOiJkaXNjbyIsIm5hbWUiOiJlbHlzaXVtIiwiaWF0IjoxNTE2MjM5MDIyfQ'
 
 
 settings = Settings()
