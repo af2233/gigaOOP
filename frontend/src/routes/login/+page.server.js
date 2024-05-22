@@ -5,21 +5,19 @@ import { BASE_URL } from '../../api.js';
 export const actions = {
 	register: async ({ request }) => {
 		const body = await request.formData();
-		const login = body.get('login');
 		const email = body.get('email');
 		const password = body.get('password');
 
 		
 		const user = {
-			login: login,
 			email: email,
 			password: password
 		};
 
-		const response = await fetch(`${BASE_URL}/users/`, {
+		const response = await fetch(`${BASE_URL}/auth/register`, {
 			method: 'POST',
 			headers: {
-			'Content-Type': 'application/json'
+				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify(user)
 		});

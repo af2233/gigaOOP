@@ -94,10 +94,6 @@
 			<form method="POST">
 				<div class="input-group">
 					<label class="form__label">
-						<p>Login</p>
-						<input name="login" type="text" class="form__input" required>
-					</label>
-					<label class="form__label">
 						<p>Password</p>
 						<input name="password" type="password" class="form__input" required>
 					</label>

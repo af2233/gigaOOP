@@ -1,10 +1,13 @@
 from contextlib import asynccontextmanager
+import uuid
 
 from fastapi import Depends, FastAPI
+from fastapi_users import FastAPIUsers
 
 from auth.db import User, create_db_and_tables
 from auth.schemas import UserCreate, UserRead, UserUpdate
-from auth.users import auth_backend, current_active_user, fastapi_users
+from auth.users import current_active_user, fastapi_users, get_user_manager
+from auth.auth import auth_backend
 from core.config import settings
 
 from fastapi.middleware.cors import CORSMiddleware
@@ -19,11 +22,17 @@ async def lifespan(app: FastAPI):
     await create_db_and_tables()
     yield
 
+fastapi_users = FastAPIUsers[User, uuid.UUID](
+    get_user_manager,
+    [auth_backend],
+)
 
 app = FastAPI(title=settings.PROJECT_NAME, version=settings.PROJECT_VERSION, lifespan=lifespan)
 
 app.include_router(
-    fastapi_users.get_auth_router(auth_backend), prefix="/auth/jwt", tags=["auth"]
+    fastapi_users.get_auth_router(auth_backend),
+    prefix="/auth/jwt",
+    tags=["auth"]
 )
 app.include_router(
     fastapi_users.get_register_router(UserRead, UserCreate),

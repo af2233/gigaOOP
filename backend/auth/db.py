@@ -2,9 +2,9 @@ from typing import AsyncGenerator
 
 from fastapi import Depends
 from fastapi_users.db import SQLAlchemyBaseUserTableUUID, SQLAlchemyUserDatabase
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
-from sqlalchemy.orm import DeclarativeBase
-
+from sqlalchemy.orm import DeclarativeBase, Mapped, declared_attr, mapped_column
 from core.config import settings
 
 
@@ -13,7 +13,8 @@ class Base(DeclarativeBase):
 
 
 class User(SQLAlchemyBaseUserTableUUID, Base):
-    pass
+    name: Mapped[str] = mapped_column(String(length=320), nullable=True)
+    status: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
 
 
 engine = create_async_engine(settings.DATABASE_URL)
