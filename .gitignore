@@ -175,3 +175,5 @@ cython_debug/
 /**/.idea/
 /**/gigaOOP_database.db
 /**/__init__.py
+/**/versions/
+.vs/
