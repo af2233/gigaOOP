@@ -25,19 +25,10 @@ export const actions = {
 		if (response.ok) {
 			// Обработка успешной регистрации
 			console.log('User registered successfully');
-		} else {
-			// Обработка ошибки регистрации
-			console.error('Error registering user:', await response.text());
+		} else if (response.status === 400){
+			return { mailAlreadyExists: true }
 		}
 
-		// Parse the response from the FastAPI endpoint
-		// const responseData = await response.json();
-
-		// Return the response from the FastAPI endpoint to the SvelteKit endpoint
-		// console.log(responseData)
-		// return {
-		// 	message: responseData.message 
-		// };
 	},
 	login: async (event) => {
 		// login the user
