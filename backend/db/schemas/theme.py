@@ -7,7 +7,7 @@ class ThemeBase(BaseModel):
 
 
 class ThemeCreate(ThemeBase):
-    pass
+    course_id: int
 
 
 class ThemeUpdate(ThemeBase):
@@ -16,4 +16,3 @@ class ThemeUpdate(ThemeBase):
 
 class ThemeInDB(ThemeBase):
     id: int
-    course_id: int
