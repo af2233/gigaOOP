@@ -4,14 +4,18 @@ import uuid
 from fastapi import Depends, FastAPI
 from fastapi_users import FastAPIUsers
 
-from auth.db import User, create_db_and_tables
-from auth.schemas import UserCreate, UserRead, UserUpdate
-from auth.users import current_active_user, fastapi_users, get_user_manager
-from auth.auth import auth_backend
-from core.config import settings
-
 from fastapi.middleware.cors import CORSMiddleware
 import logging
+
+from backend.api.routers.course import course_router
+from backend.api.routers.theme import theme_router
+from backend.api.routers.user import current_active_user, fastapi_users, get_user_manager
+from backend.core.auth import auth_backend
+from backend.core.config import settings
+from backend.db.schemas.user import UserCreate, UserRead, UserUpdate
+from backend.db.models.user import User
+from backend.db.base import create_db_and_tables
+
 
 # Настройка логирования
 logging.basicConfig(level=logging.DEBUG)
@@ -55,6 +59,10 @@ app.include_router(
 #     prefix="/users",
 #     tags=["users"],
 # )
+
+app.include_router(course_router, prefix="/courses", tags=["courses"])
+
+app.include_router(theme_router, prefix="/themes", tags=["themes"])
 
 
 origins = [
