@@ -16,4 +16,4 @@ class ThemeUpdate(ThemeBase):
 
 class ThemeInDB(ThemeBase):
     id: int
-    instructor_id: int
+    course_id: int

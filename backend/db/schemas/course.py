@@ -16,4 +16,3 @@ class CourseUpdate(CourseBase):
 
 class CourseInDB(CourseBase):
     id: int
-    instructor_id: int
