@@ -1,0 +1,14 @@
+fastapi
+fastapi-users[sqlalchemy]
+uvicorn[standard]
+aiosqlite
+sqlalchemy
+alembic
+pydantic[email]
+passlib[bcrypt]
+pytest
+httpx
+pre-commit
+python-jose
+python-multipart
+black
