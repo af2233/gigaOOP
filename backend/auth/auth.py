@@ -4,7 +4,7 @@ from core.config import Settings
 
 
 
-cookie_transport = CookieTransport(cookie_name='auth', cookie_max_age=3600)
+cookie_transport = CookieTransport(cookie_name='auth', cookie_max_age=3600, cookie_path='/', cookie_secure=False)
 
 
 def get_jwt_strategy() -> JWTStrategy:

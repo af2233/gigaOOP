@@ -4,9 +4,9 @@
 import { redirect } from '@sveltejs/kit';
 
 export async function handle({ event, resolve }) {
-    const token = event.cookies.get('token');
+    const token = event.cookies.get('auth');
 
-    console.log(`Token: ${token}`); // Логирование для отладки
+    console.log(`Token: ${token}`);
     console.log(`Pathname: ${event.url.pathname}`);
     console.log(`Headers: ${JSON.stringify(event.request.headers)}`);
     
