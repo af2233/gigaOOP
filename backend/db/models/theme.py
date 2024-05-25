@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, ForeignKey, Integer
+from sqlalchemy import Column, String, ForeignKey, Integer, Text
 
 from db.session import Base
 
@@ -8,5 +8,5 @@ class Theme(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, index=True)
-    description = Column(String, index=True)
+    content = Column(Text, index=True)
     course_id = Column(Integer, ForeignKey('courses.id'), nullable=False)
