@@ -2,9 +2,10 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 
-from ...db.models.theme import Theme
-from ...db.schemas.theme import ThemeCreate, ThemeUpdate, ThemeRead
-from ..deps import get_db
+
+from db.models.theme import Theme
+from db.schemas.theme import ThemeCreate, ThemeUpdate, ThemeInDB
+from api.deps import get_db
 
 router = APIRouter()
 
