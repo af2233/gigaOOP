@@ -5,9 +5,10 @@ from fastapi import Depends, Request
 from fastapi_users import BaseUserManager, FastAPIUsers, UUIDIDMixin
 from fastapi_users.db import SQLAlchemyUserDatabase
 
-from db.models.user import User, get_user_db
-from core.config import settings
-from core.auth import auth_backend
+from ...db.models.user import User
+from ...api.deps import get_user_db
+from ...core.config import settings
+from ...core.auth import auth_backend
 
 
 class UserManager(UUIDIDMixin, BaseUserManager[User, uuid.UUID]):
