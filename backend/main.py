@@ -6,6 +6,10 @@ from fastapi_users import FastAPIUsers
 
 from fastapi.middleware.cors import CORSMiddleware
 # import logging
+<<<<<<< HEAD
+=======
+
+>>>>>>> ce301b6e67bcd3de8c3c13f0ae93d41b7edfd405
 
 
 from api.routers import course

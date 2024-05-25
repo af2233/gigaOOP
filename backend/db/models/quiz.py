@@ -2,7 +2,6 @@ from sqlalchemy import Column, Integer, ForeignKey
 
 from db.session import Base
 
-
 class Quiz(Base):
     __tablename__ = 'quizzes'
 
