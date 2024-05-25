@@ -1,4 +1,16 @@
 <script>
+    let courses = [
+        {
+            "title": "Python",
+        },
+        {
+            "title": "Java",
+        },
+        {
+            "title": "C++",
+        },
+    ]
+        
 </script>
 
 <style type="text/scss">
@@ -53,15 +65,11 @@
     <div class="content">
         <h1 class="heading">Курсы</h1>
         <div class="courses">
-            <a href="#" class="courses__item">
-                <h2 class="courses__title">Python</h2>
-            </a>
-            <a href="#" class="courses__item">
-                <h2 class="courses__title">Java</h2>
-            </a>
-            <a href="#" class="courses__item">
-                <h2 class="courses__title">C++</h2>
-            </a>
+            {#each courses as course}
+                <a href={`/${course.title}`} class="courses__item">
+                    <h2 class="courses__title">{course.title}</h2>
+                </a>
+            {/each}
         </div>
     </div>
 </section>
