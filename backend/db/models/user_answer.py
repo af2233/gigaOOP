@@ -7,7 +7,7 @@ class UserAnswer(Base):
     __tablename__ = 'user_answers'
 
     id = Column(Integer, primary_key=True, index=True)
-    user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
+    user_id = Column(Integer, ForeignKey('user.id'), nullable=False)
     question_id = Column(Integer, ForeignKey('questions.id'), nullable=False)
     quiz_id = Column(Integer, ForeignKey('quizzes.id'), nullable=False)
     correct = Column(Integer, default=0)
