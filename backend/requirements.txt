@@ -7,6 +7,8 @@ alembic
 pydantic[email]
 passlib[bcrypt]
 pytest
+pytest-cov
+pytest-asyncio
 httpx
 pre-commit
 python-jose
