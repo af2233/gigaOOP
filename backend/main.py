@@ -5,7 +5,8 @@ from fastapi import Depends, FastAPI
 from fastapi_users import FastAPIUsers
 
 from fastapi.middleware.cors import CORSMiddleware
-import logging
+# import logging
+
 
 from api.routers.course import course_router
 from api.routers.theme import theme_router
@@ -18,7 +19,7 @@ from db.base import create_db_and_tables
 
 
 # Настройка логирования
-logging.basicConfig(level=logging.DEBUG)
+# logging.basicConfig(level=logging.DEBUG)
 
 
 @asynccontextmanager
@@ -60,9 +61,9 @@ app.include_router(
 #     tags=['users'],
 # )
 
-app.include_router(course_router, prefix='/courses', tags=['courses'])
+app.include_router(course.router, prefix='/courses', tags=['courses'])
 
-app.include_router(theme_router, prefix='/themes', tags=['themes'])
+app.include_router(theme.router, prefix='/themes', tags=['themes'])
 
 
 origins = [
@@ -74,7 +75,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
-    allow_methods=['GET, POST, PATCH, DELETE'],
+    allow_methods=['GET, POST, PATCH, DELETE, OPTIONS, PUT'],
     allow_headers=['*'],
 )
 
