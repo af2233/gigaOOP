@@ -1,8 +1,23 @@
 <script>
-// @ts-nocheck
+	// @ts-nocheck
+	/** @type {import('./$types').ActionData} */
+	export let form;
+	import { fade } from 'svelte/transition';
 
+	let errorVisible = false;
+	let errorMessage = '';
 
-		/** @type {import('./$types').ActionData} */
+	if (form?.mailAlreadyExists) {
+		errorMessage = 'Email already exists!';
+		errorVisible = true;
+		setTimeout(() => {
+			errorVisible = false;
+		}, 3000); // Сообщение исчезнет через 3 секунды
+	}
+
+	function hideError() {
+		errorVisible = false;
+	}
 </script>
 
 <style type="text/scss">
@@ -84,6 +99,15 @@
 		color: rgba(0, 0, 0, 0.85);
 		background-color: #fff;
 	}
+	.error{
+		color: #fff;
+		background-color: #ed4337;
+		padding: 30px 10px;
+		margin-top: 20px;
+		border-radius: 10px;
+		font-size: 18px;
+		text-align: center;
+	}
 
 </style>
 
@@ -91,19 +115,15 @@
 	<div class="form">
 		<div class="form__content">
 			<h2 class="form__title">Enter your profile</h2>
-			<form method="POST">
+			<form method="POST" on:input={hideError}>
 				<div class="input-group">
-					<label class="form__label">
-						<p>Login</p>
-						<input name="login" type="text" class="form__input" required>
-					</label>
 					<label class="form__label">
 						<p>Password</p>
 						<input name="password" type="password" class="form__input" required>
 					</label>
 					<label class="form__label">
 						<p>Email</p>
-						<input name="email" type="email" class="form__input" required>
+						<input name="email" type="email" class="form__input" value={form?.email ?? ''} required>
 					</label>
 				</div>
 				<div class="btn-group">
@@ -111,6 +131,9 @@
 					<button formaction="?/register" class="btn btn_register">Create an account</button>
 				</div>
 			</form>
+			{#if errorVisible}
+                <p class="error" in:fade={{ duration: 500 }} out:fade={{ duration: 500 }}>Email already exists!</p>
+            {/if}
 		</div>
 	</div>
 </section>
