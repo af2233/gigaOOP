@@ -7,8 +7,8 @@ from fastapi_users import FastAPIUsers
 from fastapi.middleware.cors import CORSMiddleware
 import logging
 
-from .api.routers.course import course_router
-from .api.routers.theme import theme_router
+from .api.routers import course
+from .api.routers import theme
 from .api.routers.user import current_active_user, fastapi_users, get_user_manager
 from .core.auth import auth_backend
 from .core.config import settings
@@ -60,9 +60,9 @@ app.include_router(
 #     tags=['users'],
 # )
 
-app.include_router(course_router, prefix='/courses', tags=['courses'])
+app.include_router(course.router, prefix='/courses', tags=['courses'])
 
-app.include_router(theme_router, prefix='/themes', tags=['themes'])
+app.include_router(theme.router, prefix='/themes', tags=['themes'])
 
 
 origins = [
@@ -74,7 +74,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
-    allow_methods=['GET, POST, PATCH, DELETE'],
+    allow_methods=['GET, POST, PATCH, DELETE, OPTIONS, PUT'],
     allow_headers=['*'],
 )
 
