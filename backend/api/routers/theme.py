@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from backend.db.session import async_session_maker
-from backend.db.models.theme import Theme
-from backend.db.schemas.theme import ThemeCreate, ThemeUpdate, ThemeInDB
+from db.session import async_session_maker
+from db.models.theme import Theme
+from db.schemas.theme import ThemeCreate, ThemeUpdate, ThemeInDB
 
 theme_router = APIRouter()
 

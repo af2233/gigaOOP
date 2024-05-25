@@ -1,1 +1,65 @@
-<h1>Index page</h1>
+<script>
+</script>
+
+<style type="text/scss">
+	section{
+		width: 100%;
+		height: 100%;
+		background-color: #f5f5f5;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.content{
+        max-width: 1024px;
+        width: 100%;
+        margin-top: 80px;   
+        padding: 0 15px;
+    }
+
+    .heading{
+        font-size: 40px;
+        font-weight: 600;
+        margin-bottom: 50px;
+    }
+
+    .courses{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .courses__item{
+        background-color: #FFDE4B;
+        padding: 15px;
+        max-width: 600px;
+        width: 100%;
+        max-height: 150px;
+        height: 150px
+    }
+
+    .courses__title{
+        font-size: 36px;
+        font-weight: 600;
+    }
+</style>
+
+<section>
+    <div class="content">
+        <h1 class="heading">Курсы</h1>
+        <div class="courses">
+            <div class="courses__item">
+                <h2 class="courses__title">Python</h2>
+            </div>
+            <div class="courses__item">
+                <h2 class="courses__title">Java</h2>
+            </div>
+            <div class="courses__item">
+                <h2 class="courses__title">C++</h2>
+            </div>
+        </div>
+    </div>
+	
+</section>
+
