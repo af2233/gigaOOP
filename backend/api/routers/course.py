@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from ...db.models.course import Course
-from ...db.schemas.course import CourseCreate, CourseUpdate, CourseInDB
-from ..deps import get_db
+from db.models.course import Course
+from db.schemas.course import CourseCreate, CourseUpdate, CourseInDB
+from api.deps import get_db
 
 
 course_router = APIRouter()
