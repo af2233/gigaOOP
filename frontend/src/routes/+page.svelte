@@ -36,7 +36,11 @@
         max-width: 600px;
         width: 100%;
         max-height: 150px;
-        height: 150px
+        height: 150px;
+        transition: .2s;
+        &:hover{
+            filter: brightness(110%);
+        }
     }
 
     .courses__title{
@@ -49,17 +53,16 @@
     <div class="content">
         <h1 class="heading">Курсы</h1>
         <div class="courses">
-            <div class="courses__item">
+            <a href="#" class="courses__item">
                 <h2 class="courses__title">Python</h2>
-            </div>
-            <div class="courses__item">
+            </a>
+            <a href="#" class="courses__item">
                 <h2 class="courses__title">Java</h2>
-            </div>
-            <div class="courses__item">
+            </a>
+            <a href="#" class="courses__item">
                 <h2 class="courses__title">C++</h2>
-            </div>
+            </a>
         </div>
     </div>
-	
 </section>
 
