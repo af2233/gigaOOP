@@ -173,7 +173,6 @@ cython_debug/
 /**/__pycache__/
 /**/.venv/
 /**/.idea/
-/**/gigaOOP_database.db
 /**/versions/
 /**/.vs/
 /**/test.db

@@ -30,7 +30,6 @@ async def test_read_course(async_client: AsyncClient):
     assert data['description'] == 'Deep dive into FastAPI.'
 
 
-'''
 @pytest.mark.asyncio
 async def test_get_courses(async_client: AsyncClient):
     response = await async_client.get('/courses/')
@@ -46,7 +45,7 @@ async def test_update_course(async_client: AsyncClient):
         'title': 'Intermediate FastAPI',
         'description': 'Learn intermediate concepts of FastAPI.'
     })
-    assert response.status_code == 201
+    assert response.status_code == 200
     course_id = response.json()['id']
 
     response = await async_client.put(f'/courses/{course_id}', json={
@@ -65,12 +64,11 @@ async def test_delete_course(async_client: AsyncClient):
         'title': 'Delete Me',
         'description': 'This course will be deleted.'
     })
-    assert response.status_code == 201
+    assert response.status_code == 200
     course_id = response.json()['id']
 
     response = await async_client.delete(f'/courses/{course_id}')
-    assert response.status_code == 204
+    assert response.status_code == 200
 
     response = await async_client.get(f'/courses/{course_id}')
     assert response.status_code == 404
-'''
