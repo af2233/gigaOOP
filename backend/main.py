@@ -5,7 +5,7 @@ from fastapi import Depends, FastAPI
 from fastapi_users import FastAPIUsers
 
 from fastapi.middleware.cors import CORSMiddleware
-import logging
+# import logging
 
 from .api.routers import course
 from .api.routers import theme
@@ -18,7 +18,7 @@ from .db.base import create_db_and_tables
 
 
 # Настройка логирования
-logging.basicConfig(level=logging.DEBUG)
+# logging.basicConfig(level=logging.DEBUG)
 
 
 @asynccontextmanager
