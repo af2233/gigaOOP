@@ -11,8 +11,12 @@ class CourseCreate(CourseBase):
 
 
 class CourseUpdate(CourseBase):
-    pass
+    title: str | None = None
+    description: str | None = None
 
 
-class CourseInDB(CourseBase):
+class CourseRead(CourseBase):
     id: int
+
+    class Config:
+        orm_mode = True
