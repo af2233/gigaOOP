@@ -1,6 +1,6 @@
 from sqlalchemy import Column, String, Integer
 
-from db.session import Base
+from ..session import Base
 
 
 class Course(Base):

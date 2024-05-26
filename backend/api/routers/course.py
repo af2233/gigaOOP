@@ -4,7 +4,7 @@ from sqlalchemy.future import select
 
 
 from db.models.course import Course
-from db.schemas.course import CourseCreate, CourseUpdate, CourseInDB
+from db.schemas.course import CourseCreate, CourseUpdate, CourseRead
 from api.deps import get_db
 
 

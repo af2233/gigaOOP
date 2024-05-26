@@ -4,7 +4,7 @@ from sqlalchemy.future import select
 
 
 from db.models.theme import Theme
-from db.schemas.theme import ThemeCreate, ThemeUpdate, ThemeInDB
+from db.schemas.theme import ThemeCreate, ThemeUpdate, ThemeRead
 from api.deps import get_db
 
 router = APIRouter()
