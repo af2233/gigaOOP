@@ -3,7 +3,7 @@ from pydantic import BaseModel
 
 class ThemeBase(BaseModel):
     title: str
-    description: str
+    content: str
     course_id: int
 
 
@@ -13,7 +13,7 @@ class ThemeCreate(ThemeBase):
 
 class ThemeUpdate(ThemeBase):
     title: str | None = None
-    description: str | None = None
+    content: str | None = None
     course_id: int | None = None
 
 
