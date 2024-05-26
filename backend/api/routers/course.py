@@ -3,9 +3,9 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 
 
-from db.models.course import Course
-from db.schemas.course import CourseCreate, CourseUpdate, CourseInDB
-from api.deps import get_db
+from ...db.models.course import Course
+from ...db.schemas.course import CourseCreate, CourseUpdate, CourseRead
+from ..deps import get_db
 
 
 router = APIRouter()
