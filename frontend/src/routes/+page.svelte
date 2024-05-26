@@ -57,7 +57,7 @@
         <h1 class="heading">Курсы</h1>
         <div class="courses">
             {#each data.courses as course}
-                <a href={`/${course.title}`} class="courses__item">
+                <a href={`/${course.id}`} class="courses__item">
                     <h2 class="courses__title">{course.title}</h2>
                 </a>
             {/each}

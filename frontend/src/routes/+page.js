@@ -1,20 +1,13 @@
+import { BASE_URL } from '../api.js';
 /** @type {import('./$types').PageLoad} */
 export async function load() {
-
-    return {
-        courses: [
-            {
-                title: "Python",
-                description: "Learn the basics of Python programming."
-            },
-            {
-                title: "Java",
-                description: "Master the fundamentals of Java."
-            },
-            {
-                title: "C++",
-                description: "Explore the world of C++ programming."
-            }
-        ]
-    };
+    const res = await fetch(`${BASE_URL}/courses`);
+    if (res.ok){
+        const courses = await res.json();
+        console.log(courses)
+        return {
+            courses
+        };
+    }
+    
 }

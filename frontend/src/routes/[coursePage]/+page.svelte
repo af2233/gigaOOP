@@ -1,7 +1,6 @@
 <script>
     /** @type {import('./$types').PageData} */
     export let data;
-    console.log(data.par)
 </script>
 
 
@@ -19,5 +18,10 @@
 </style>
 
 <section>
-    <h1>{data.course} Course Page</h1>
+    <h1>Course Page</h1>
+    <div>
+        {#each data.themes as theme}
+            <div>{theme.title}</div>
+        {/each}
+    </div>
 </section>
