@@ -1,34 +1,56 @@
 from pydantic import BaseModel
 from typing import List, Optional
 
+
+class QuizQuestionAnswerBase(BaseModel):
+    answer_text: str
+    is_correct: bool
+
+
+class QuizQuestionAnswerCreate(QuizQuestionAnswerBase):
+    pass
+
+
+class QuizQuestionAnswerRead(QuizQuestionAnswerBase):
+    id: int
+
+    class ConfigDict:
+        from_attributes = True
+
+
 class QuizQuestionBase(BaseModel):
     question_text: str
-    answer: str
+
 
 class QuizQuestionCreate(QuizQuestionBase):
-    pass
+    answers: List[QuizQuestionAnswerCreate]
+
 
 class QuizQuestionRead(QuizQuestionBase):
     id: int
+    answers: List[QuizQuestionAnswerRead]
 
-    class Config:
-        orm_mode = True
+    class ConfigDict:
+        from_attributes = True
+
 
 class QuizBase(BaseModel):
     title: str
     description: str
-    course_id: int
     theme_id: int
+
 
 class QuizCreate(QuizBase):
     questions: List[QuizQuestionCreate] = []
+
 
 class QuizRead(QuizBase):
     id: int
     questions: List[QuizQuestionRead] = []
 
-    class Config:
-        orm_mode = True
+    class ConfigDict:
+        from_attributes = True
+
 
 class QuizUpdate(BaseModel):
     title: Optional[str] = None
