@@ -8,8 +8,8 @@ from fastapi.middleware.cors import CORSMiddleware
 # import logging
 
 
-from api.routers.course import router
-from api.routers.theme import router
+from api.routers import course
+from api.routers import theme
 from api.routers.user import current_active_user, fastapi_users, get_user_manager
 from core.auth import auth_backend
 from core.config import settings
