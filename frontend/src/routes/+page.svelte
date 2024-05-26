@@ -1,17 +1,8 @@
 <script>
-    let courses = [
-        {
-            "title": "Python",
-        },
-        {
-            "title": "Java",
-        },
-        {
-            "title": "C++",
-        },
-    ]
-        
+    /** @type {import('./$types').PageData} */
+    export let data;
 </script>
+
 
 <style type="text/scss">
 	section{
@@ -65,7 +56,7 @@
     <div class="content">
         <h1 class="heading">Курсы</h1>
         <div class="courses">
-            {#each courses as course}
+            {#each data.courses as course}
                 <a href={`/${course.title}`} class="courses__item">
                     <h2 class="courses__title">{course.title}</h2>
                 </a>
