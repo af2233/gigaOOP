@@ -173,7 +173,6 @@ cython_debug/
 /**/__pycache__/
 /**/.venv/
 /**/.idea/
-/**/versions/
 /**/.vs/
 /**/test.db
 /**/.pytest_cache
