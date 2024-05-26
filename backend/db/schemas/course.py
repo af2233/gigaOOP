@@ -18,5 +18,5 @@ class CourseUpdate(CourseBase):
 class CourseRead(CourseBase):
     id: int
 
-    class Config:
-        orm_mode = True
+    class ConfigDict:
+        from_attributes = True

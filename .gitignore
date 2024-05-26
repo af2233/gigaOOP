@@ -169,11 +169,10 @@ cython_debug/
 /**/!.env.example
 /**/vite.config.js.timestamp-*
 /**/vite.config.ts.timestamp-*
-
 /**/__pycache__/
 /**/.venv/
+/**/venv/
 /**/.idea/
-/**/versions/
 /**/.vs/
 /**/test.db
 /**/.pytest_cache
