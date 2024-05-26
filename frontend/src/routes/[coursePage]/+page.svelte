@@ -49,16 +49,16 @@
 
 <section>
     <div class="content">
-        <h1 class="heading">Course Page</h1>
+        <h1 class="heading">{data.courseTitle}</h1>
         <div class="chapters">
             <h2 class="chapters__title">Главы</h2>
             <div class="chapters__list">
                 {#each data.themes as theme}
-                    <a href={`/${data.courseId}/${theme.id}`} class="chapters__item">
+                    <a href={`/${data.courseTitle}/${theme.id}`} class="chapters__item">
                         <p class="chapters__text">{theme.title}</p>
                     </a>
                 {/each}
-            </div>
+            </div>  
         </div>
     </div>
 </section>
