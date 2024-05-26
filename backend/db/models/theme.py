@@ -1,6 +1,6 @@
 from sqlalchemy import Column, String, ForeignKey, Integer, Text
 
-from ...db.session import Base
+from db.session import Base
 
 
 class Theme(Base):
