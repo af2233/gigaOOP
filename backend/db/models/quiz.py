@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, ForeignKey, String
 
-from ...db.session import Base
+from db.session import Base
 
 class Quiz(Base):
     __tablename__ = "quizzes"

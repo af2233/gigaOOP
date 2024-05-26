@@ -4,10 +4,10 @@ from sqlalchemy.future import select
 from sqlalchemy.orm import selectinload
 
 
-from ...api.deps import get_db
+from api.deps import get_db
 
-from ...db.models.quiz import Quiz, QuizQuestion
-from ...db.schemas.quiz import QuizCreate, QuizRead, QuizUpdate
+from db.models.quiz import Quiz, QuizQuestion
+from db.schemas.quiz import QuizCreate, QuizRead, QuizUpdate
 
 router = APIRouter()
 
