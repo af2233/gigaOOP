@@ -1,6 +1,6 @@
 from fastapi_users.authentication import AuthenticationBackend, CookieTransport, JWTStrategy
 
-from core.config import settings
+from .config import settings
 
 
 cookie_transport = CookieTransport(cookie_name='auth', cookie_max_age=3600, cookie_path='/', cookie_secure=False)
