@@ -11,7 +11,8 @@ export async function load({ params }) {
 		// Фильтруем темы по course_id
 		const filteredThemes = themes.filter(theme => theme.course_id === courseId);
 		return {
-			themes: filteredThemes
+			themes: filteredThemes,
+			courseId: courseId
 		};
 	}
 }
