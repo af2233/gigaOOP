@@ -1,4 +1,4 @@
-from contextlib import asynccontextmanager
+# from contextlib import asynccontextmanager
 import uuid
 
 from fastapi import Depends, FastAPI
@@ -14,17 +14,17 @@ from .core.auth import auth_backend
 from .core.config import settings
 from .db.schemas.user import UserCreate, UserRead, UserUpdate
 from .db.models.user import User
-from .db.base import create_db_and_tables
+# from .db.base import create_db_and_tables
 
 
 # Настройка логирования
 # logging.basicConfig(level=logging.DEBUG)
 
 
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    await create_db_and_tables()
-    yield
+# @asynccontextmanager
+# async def lifespan(app: FastAPI):
+#     await create_db_and_tables()
+#     yield
 
 fastapi_users = FastAPIUsers[User, uuid.UUID](
     get_user_manager,
