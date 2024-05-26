@@ -8,16 +8,15 @@ from fastapi.middleware.cors import CORSMiddleware
 # import logging
 
 
-from api.routers import course
-from api.routers import theme
-from api.routers import quiz
-
 from api.routers.user import current_active_user, fastapi_users, get_user_manager
 from core.auth import auth_backend
 from core.config import settings
 from db.schemas.user import UserCreate, UserRead, UserUpdate
 from db.models.user import User
-# from .db.base import create_db_and_tables
+# from db.base import create_db_and_tables
+from api.routers import course
+from api.routers import theme
+from api.routers import quiz
 
 
 # Настройка логирования
@@ -66,7 +65,7 @@ app.include_router(
 
 app.include_router(course.router, prefix='/courses', tags=['courses'])
 app.include_router(theme.router, prefix='/themes', tags=['themes'])
-app.include_router(quiz.router, prefix="/quizzes", tags=["quizzes"])
+app.include_router(quiz.router, prefix='/quizzes', tags=['quizzes'])
 
 
 origins = [

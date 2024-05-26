@@ -1,8 +1,8 @@
-from ..db.session import engine, Base
-from ..db.models.theme import Theme
-from ..db.models.user import User
-from ..db.models.course import Course
-from ..db.models.quiz import Quiz, QuizQuestion, QuizQuestionAnswer
+from db.session import engine, Base
+from db.models.user import User
+from db.models.course import Course
+from db.models.theme import Theme
+from db.models.quiz import Quiz, QuizQuestion, QuizQuestionAnswer
 
 
 # async def create_db_and_tables():
