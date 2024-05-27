@@ -64,6 +64,8 @@ export const actions = {
 				console.error('Login failed:', error);
 				return { success: false, error: error };
 			}
+		}else if(response.status == 400){
+			return {mailAlreadyExists: true}
 		}
 	},
 	login: async ({ request, cookies }) => {

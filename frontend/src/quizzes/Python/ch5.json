@@ -1,0 +1,69 @@
+{
+    "title": "Магические методы в Python",
+    "questions": [
+      {
+        "question_text": "Какой магический метод используется для определения строкового представления объекта, предназначенного для пользователя?",
+        "answers": [
+          {
+            "answer_text": "__repr__(self)",
+            "is_correct": false
+          },
+          {
+            "answer_text": "__init__(self, ...)",
+            "is_correct": false
+          },
+          {
+            "answer_text": "__del__(self)",
+            "is_correct": false
+          },
+          {
+            "answer_text": "__str__(self)",
+            "is_correct": true
+          }
+        ]
+      },
+      {
+        "question_text": "Какой магический метод Python используется для сравнения двух объектов класса по их содержимому?",
+        "answers": [
+          {
+            "answer_text": "__eq__",
+            "is_correct": true
+          },
+          {
+            "answer_text": "__lt__",
+            "is_correct": false
+          },
+          {
+            "answer_text": "__add__",
+            "is_correct": false
+          },
+          {
+            "answer_text": "__del__",
+            "is_correct": false
+          }
+        ]
+      },
+      {
+        "question_text": "Какой из магических методов Python позволяет использовать функцию len() для объекта?",
+        "answers": [
+          {
+            "answer_text": "__size__",
+            "is_correct": false
+          },
+          {
+            "answer_text": "__length__",
+            "is_correct": false
+          },
+          {
+            "answer_text": "__len__",
+            "is_correct": true
+          },
+          {
+            "answer_text": "__count__",
+            "is_correct": false
+          }
+        ]
+      }
+    ],
+    "theme_id": 5
+  }
