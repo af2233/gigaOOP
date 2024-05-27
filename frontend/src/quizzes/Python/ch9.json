@@ -1,0 +1,28 @@
+{
+    "title": "Исключения в ООП",
+    "description": "string",
+    "questions": [
+      {
+        "question_text": "Как можно обработать исключение, возникшее внутри метода класса?",
+        "answers": [
+          {
+            "answer_text": "Используя блок if внутри метода",
+            "is_correct": false
+          },
+          {
+            "answer_text": "Используя блок try вне класса",
+            "is_correct": false
+          },
+          {
+            "answer_text": "Используя блок try внутри метода или вне класса, где вызывается метод",
+            "is_correct": true
+          },
+          {
+            "answer_text": "Используя ключевое слово exception внутри метода",
+            "is_correct": false
+          }
+        ]
+      }
+    ],
+    "theme_id": 9
+  }

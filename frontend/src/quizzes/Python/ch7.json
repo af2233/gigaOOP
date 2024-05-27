@@ -1,0 +1,28 @@
+{
+    "title": "Декораторы классов в Python",
+    "description": "string",
+    "questions": [
+      {
+        "question_text": "Какой декоратор используется для определения метода, который не зависит от экземпляра или класса?",
+        "answers": [
+          {
+            "answer_text": "@classmethod",
+            "is_correct": false
+          },
+          {
+            "answer_text": "@staticmethod",
+            "is_correct": true
+          },
+          {
+            "answer_text": "@property",
+            "is_correct": false
+          },
+          {
+            "answer_text": "@abstractmethod",
+            "is_correct": false
+          }
+        ]
+      }
+    ],
+    "theme_id": 7
+  }

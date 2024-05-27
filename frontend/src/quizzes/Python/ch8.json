@@ -1,0 +1,28 @@
+{
+    "title": "Пространства имен и области видимости в Python",
+    "description": "string",
+    "questions": [
+      {
+        "question_text": "Какая область видимости у переменных, объявленных внутри функции?",
+        "answers": [
+          {
+            "answer_text": "Глобальная область видимости",
+            "is_correct": false
+          },
+          {
+            "answer_text": "Локальная область видимости",
+            "is_correct": true
+          },
+          {
+            "answer_text": "Область видимости классов",
+            "is_correct": false
+          },
+          {
+            "answer_text": "Пространство имен встроенных функций",
+            "is_correct": false
+          }
+        ]
+      }
+    ],
+    "theme_id": 8
+  }
