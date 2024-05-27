@@ -16,22 +16,31 @@ export async function load({ params }) {
             const data = await fs.readFile(filePath, 'utf8'); // Асинхронное чтение файла
             const htmlContent = marked(data); // Конвертируем Markdown в HTML
             
+            const quizPath = path.join(process.cwd(), `/src/quizzes/Python/ch${themeId}.json`);
+            const quizData = JSON.parse(await fs.readFile(quizPath, 'utf8'));
+
             return {
                 htmlContent,
-                themeTitle: theme.title
+                themeTitle: theme.title,
+                themeId,
+                quizData
             };
         } catch (err) {
             console.log(`File not found: ${filePath}`, err);
             return {
                 htmlContent: 'File not found',
-                themeTitle: theme.title
+                themeTitle: theme.title,
+                themeId,
+                quizData: null
             };
         }
     } else {
         console.log('Fetch error');
         return {
             htmlContent: 'Error fetching theme',
-            themeTitle: 'Error'
+            themeTitle: 'Error',
+            themeId,
+            quizData: null
         };
     }
 }
