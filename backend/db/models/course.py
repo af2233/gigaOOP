@@ -1,10 +1,10 @@
 from sqlalchemy import Column, String, Integer
 
-from backend.db.session import Base
+from ..session import Base
 
 
 class Course(Base):
-    __tablename__ = "courses"
+    __tablename__ = 'courses'
 
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, index=True)

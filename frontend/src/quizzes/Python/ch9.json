@@ -1,0 +1,69 @@
+{
+    "title": "Исключения в ООП",
+    "questions": [
+      {
+        "question_text": "Как можно обработать исключение, возникшее внутри метода класса?",
+        "answers": [
+          {
+            "answer_text": "Используя блок if внутри метода.",
+            "is_correct": false
+          },
+          {
+            "answer_text": "Используя блок try вне класса.",
+            "is_correct": false
+          },
+          {
+            "answer_text": "Используя блок try внутри метода или вне класса, где вызывается метод.",
+            "is_correct": true
+          },
+          {
+            "answer_text": "Используя ключевое слово exception внутри метода.",
+            "is_correct": false
+          }
+        ]
+      },
+      {
+        "question_text": "Как создать собственное исключение в Python?",
+        "answers": [
+          {
+            "answer_text": "Используя функцию raise.",
+            "is_correct": false
+          },
+          {
+            "answer_text": "Создав класс, наследующий от Exception.",
+            "is_correct": false
+          },
+          {
+            "answer_text": "Используя оператор new.",
+            "is_correct": false
+          },
+          {
+            "answer_text": "Используя ключевое слово exception.",
+            "is_correct": true
+          }
+        ]
+      },
+      {
+        "question_text": "Что делает блок finally в обработке исключений?",
+        "answers": [
+          {
+            "answer_text": "Он определяет код, который будет выполнен, если не возникнет исключение.",
+            "is_correct": false
+          },
+          {
+            "answer_text": "Он определяет код, который будет выполнен, если возникнет исключение.",
+            "is_correct": false
+          },
+          {
+            "answer_text": "Он определяет код, который будет выполнен в любом случае, независимо от того, возникло исключение или нет.",
+            "is_correct": true
+          },
+          {
+            "answer_text": "Он определяет код, который будет выполнен только после обработки всех исключений.",
+            "is_correct": false
+          }
+        ]
+      }
+    ],
+    "theme_id": 9
+  }

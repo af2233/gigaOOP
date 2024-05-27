@@ -14,7 +14,7 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
+# lib/
 lib64/
 parts/
 sdist/
@@ -169,11 +169,10 @@ cython_debug/
 /**/!.env.example
 /**/vite.config.js.timestamp-*
 /**/vite.config.ts.timestamp-*
-
 /**/__pycache__/
 /**/.venv/
+/**/venv/
 /**/.idea/
-/**/gigaOOP_database.db
-#/**/__init__.py
-/**/versions/
-.vs/
+/**/.vs/
+/**/test.db
+/**/.pytest_cache
