@@ -1,25 +1,66 @@
 {
     "title": "Композиция и агрегация в ООП",
-    "description": "string",
     "questions": [
       {
         "question_text": "Какая связь между объектами в композиции?",
         "answers": [
           {
-            "answer_text": "Связь имеет (владеет)",
+            "answer_text": "Связь имеет (владеет).",
             "is_correct": false
           },
           {
-            "answer_text": "Связь использует",
+            "answer_text": "Связь использует.",
             "is_correct": false
           },
           {
-            "answer_text": "Связь связана с",
+            "answer_text": "Связь связана с.",
             "is_correct": false
           },
           {
-            "answer_text": "Связь часть-целое (содержит)",
+            "answer_text": "Связь часть-целое (содержит).",
             "is_correct": true
+          }
+        ]
+      },
+      {
+        "question_text": "Какой из следующих примеров демонстрирует композицию в объектно-ориентированном программировании?",
+        "answers": [
+          {
+            "answer_text": "Автомобиль и его водитель.",
+            "is_correct": true
+          },
+          {
+            "answer_text": "Человек и его паспорт.",
+            "is_correct": false
+          },
+          {
+            "answer_text": "Учебное заведение и его студенты.",
+            "is_correct": false
+          },
+          {
+            "answer_text": "Телефон и его SIM-карта.",
+            "is_correct": false
+          }
+        ]
+      },
+      {
+        "question_text": " Какой из следующих примеров является демонстрацией агрегации в объектно-ориентированном программировании?",
+        "answers": [
+          {
+            "answer_text": "Книга и ее страницы.",
+            "is_correct": false
+          },
+          {
+            "answer_text": "Пицца и ее ингредиенты.",
+            "is_correct": false
+          },
+          {
+            "answer_text": "Школа и ее ученики.",
+            "is_correct": true
+          },
+          {
+            "answer_text": "Машина и ее колеса.",
+            "is_correct": false
           }
         ]
       }
