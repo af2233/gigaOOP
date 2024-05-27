@@ -20,8 +20,7 @@
             "answer_text": "Атрибут объекта.",
             "is_correct": false
           }
-        ]
-        
+        ]     
       },
       {
         "question_text": "Как создать объект из класса в Python?",
@@ -65,7 +64,6 @@
             "is_correct": false
           }
         ]
-        
       }
     ],
     "theme_id": 1
