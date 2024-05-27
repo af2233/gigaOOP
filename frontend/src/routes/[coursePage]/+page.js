@@ -1,3 +1,4 @@
+import { error } from '@sveltejs/kit';
 import { BASE_URL } from '../../api.js';
 
 /** @type {import('./$types').PageLoad} */
@@ -11,11 +12,18 @@ export async function load({ params, url }) {
 
         // Фильтруем темы по course_id
         const filteredThemes = themes.filter(theme => theme.course_id === courseId);
+		if (filteredThemes.length === 0) {
+            // Если нет данных для данного courseId, генерируем ошибку 404
+            throw error(404, 'Course not found');
+        }
         return {
             themes: filteredThemes,
             courseId: courseId,
             courseTitle: courseTitle,
         };
     }
-    return { themes: [], courseId: courseId, courseTitle: courseTitle }; // на случай, если запрос не удался
+	else {
+        // Если fetch запрос не удался, генерируем ошибку
+        throw error(res.status, 'Failed to fetch themes');
+    }
 }
