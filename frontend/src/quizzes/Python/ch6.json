@@ -1,0 +1,28 @@
+{
+    "title": "Композиция и агрегация в ООП",
+    "description": "string",
+    "questions": [
+      {
+        "question_text": "Какая связь между объектами в композиции?",
+        "answers": [
+          {
+            "answer_text": "Связь имеет (владеет)",
+            "is_correct": false
+          },
+          {
+            "answer_text": "Связь использует",
+            "is_correct": false
+          },
+          {
+            "answer_text": "Связь связана с",
+            "is_correct": false
+          },
+          {
+            "answer_text": "Связь часть-целое (содержит)",
+            "is_correct": true
+          }
+        ]
+      }
+    ],
+    "theme_id": 6
+  }

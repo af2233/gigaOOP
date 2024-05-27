@@ -3,7 +3,7 @@ from sqlalchemy import Column, Integer, String, ForeignKey, Boolean
 from db.session import Base
 
 class Quiz(Base):
-    __tablename__ = "quizzes"
+    __tablename__ = 'quizzes'
 
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, index=True)
@@ -12,7 +12,7 @@ class Quiz(Base):
 
 
 class QuizQuestion(Base):
-    __tablename__ = "questions"
+    __tablename__ = 'questions'
 
     id = Column(Integer, primary_key=True, index=True)
     question_text = Column(String, index=True)
@@ -20,7 +20,7 @@ class QuizQuestion(Base):
 
 
 class QuizQuestionAnswer(Base):
-    __tablename__ = "answers"
+    __tablename__ = 'answers'
 
     id = Column(Integer, primary_key=True, index=True)
     answer_text = Column(String, index=True)

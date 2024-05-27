@@ -1,0 +1,28 @@
+{
+    "title": "Магические методы в Python",
+    "description": "string",
+    "questions": [
+      {
+        "question_text": "Какой магический метод используется для определения строкового представления объекта, предназначенного для пользователя?",
+        "answers": [
+          {
+            "answer_text": "__repr__(self)",
+            "is_correct": false
+          },
+          {
+            "answer_text": "__init__(self, ...)",
+            "is_correct": false
+          },
+          {
+            "answer_text": "__del__(self)",
+            "is_correct": false
+          },
+          {
+            "answer_text": "__str__(self)",
+            "is_correct": true
+          }
+        ]
+      }
+    ],
+    "theme_id": 5
+  }
