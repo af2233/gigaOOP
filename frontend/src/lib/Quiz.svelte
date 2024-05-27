@@ -41,7 +41,7 @@
       padding: 0;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 10px;
   }
   .answer {
     margin-bottom: 10px;
