@@ -1,6 +1,57 @@
 <script>
     /** @type {import('./$types').PageData} */
+    import Quiz from '$lib/Quiz.svelte';
     export let data;
+
+    const quizData = {
+    "title": "Основы классов и объектов в Python",
+    "description": "string",
+    "questions": [
+      {
+        "question_text": "Что такое класс в объектно-ориентированном программировании?",
+        "answers": [
+          {
+            "answer_text": "Экземпляр объекта",
+            "is_correct": false
+          },
+          {
+            "answer_text": "Шаблон для создания объектов",
+            "is_correct": true
+          },
+          {
+            "answer_text": "Метод объекта",
+            "is_correct": false
+          },
+          {
+            "answer_text": "Атрибут объекта",
+            "is_correct": false
+          }
+        ]
+      },
+      {
+        "question_text": "Что ?",
+        "answers": [
+          {
+            "answer_text": "Экземпляр объекта",
+            "is_correct": false
+          },
+          {
+            "answer_text": "Шаблон для создания объектов",
+            "is_correct": true
+          },
+          {
+            "answer_text": "Метод объекта",
+            "is_correct": false
+          },
+          {
+            "answer_text": "Атрибут объекта",
+            "is_correct": false
+          }
+        ]
+      }
+    ],
+    "theme_id": 1
+  };
 </script>
 
 
@@ -62,6 +113,7 @@
 <section>
     <div class="content">
         <h1 class="heading">{data.themeTitle}</h1>
-         <div class="chapter-content">{@html data.htmlContent}</div>
+        <div class="chapter-content">{@html data.htmlContent}</div>
+        <Quiz questions={quizData.questions} />
     </div>
 </section>

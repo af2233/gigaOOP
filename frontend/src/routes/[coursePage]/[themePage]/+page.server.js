@@ -15,6 +15,7 @@ export async function load({ params }) {
         try {
             const data = await fs.readFile(filePath, 'utf8'); // Асинхронное чтение файла
             const htmlContent = marked(data); // Конвертируем Markdown в HTML
+            
             return {
                 htmlContent,
                 themeTitle: theme.title
