@@ -1,5 +1,7 @@
 {
     "title": "Абстракция и интерфейсы",
+    "description": "python\\ch4",
+    "theme_id": 4,
     "questions": [
       {
         "question_text": "Что такое абстрактный класс в Python?",
@@ -64,6 +66,5 @@
           }
         ]
       }
-    ],
-    "theme_id": 4
+    ]
   }

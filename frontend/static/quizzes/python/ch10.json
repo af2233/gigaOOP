@@ -1,5 +1,7 @@
 {
     "title": "Дополнительные практические темы в ООП",
+    "description": "python\\ch10",
+    "theme_id": 10,
     "questions": [
       {
         "question_text": "Что делает паттерн Singleton?",
@@ -64,6 +66,5 @@
           }
         ]
       }
-    ],
-    "theme_id": 10
-  }
+    ]
+}
