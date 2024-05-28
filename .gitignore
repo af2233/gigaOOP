@@ -174,5 +174,4 @@ cython_debug/
 /**/venv/
 /**/.idea/
 /**/.vs/
-/**/test.db
 /**/.pytest_cache
