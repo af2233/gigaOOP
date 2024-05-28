@@ -16,7 +16,7 @@ export async function load({ params }) {
             const data = await fs.readFile(filePath, 'utf8'); // Асинхронное чтение файла
             const htmlContent = marked(data); // Конвертируем Markdown в HTML
             
-            const quizPath = path.join(process.cwd(), `/src/quizzes/Python/ch${themeId}.json`);
+            const quizPath = path.join(process.cwd(), `/static/quizzes/python/ch${themeId}.json`);
             const quizData = JSON.parse(await fs.readFile(quizPath, 'utf8'));
 
             return {
