@@ -5,7 +5,7 @@ from fastapi import Depends, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi_users import FastAPIUsers
 
-from api.routers.user import current_active_user, fastapi_users, get_user_manager
+from api.routers.user import fastapi_users
 from core.auth import auth_backend
 from core.config import settings
 from db.schemas.user import UserCreate, UserRead, UserUpdate
@@ -15,22 +15,20 @@ from api.routers import theme
 from api.routers import quiz
 
 
-# Настройка логирования
+# Logging setup
 logging.basicConfig(level=logging.DEBUG)
 
-fastapi_users = FastAPIUsers[User, uuid.UUID](
-    get_user_manager,
-    [auth_backend],
-)
-
+# Main app setup
 app = FastAPI(title=settings.PROJECT_NAME, version=settings.PROJECT_VERSION)
 
+# login/logout routers
 app.include_router(
     fastapi_users.get_auth_router(auth_backend),
     prefix="/auth/jwt",
     tags=["auth"],
 )
 
+# register router
 app.include_router(
     fastapi_users.get_register_router(UserRead, UserCreate),
     prefix="/auth",
