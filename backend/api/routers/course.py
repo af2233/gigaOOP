@@ -13,7 +13,7 @@ router = APIRouter()
 
 @router.post("/", response_model=CourseRead)
 async def create_course(course: CourseCreate, db: AsyncSession = Depends(get_db)):
-    db_course = Course(**course.dict())
+    db_course = Course(**course.model_dump())
     db.add(db_course)
     await db.commit()
     await db.refresh(db_course)

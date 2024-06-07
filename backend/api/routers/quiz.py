@@ -11,7 +11,7 @@ router = APIRouter()
 
 @router.post("/", response_model=QuizRead, status_code=status.HTTP_201_CREATED)
 async def create_quiz(quiz: QuizCreate, db: AsyncSession = Depends(get_db)):
-    new_quiz = Quiz(**quiz.dict(exclude={"questions"}))
+    new_quiz = Quiz(**quiz.model_dump(exclude={"questions"}))
     async with db as session:
         session.add(new_quiz)
         await session.commit()
@@ -19,7 +19,7 @@ async def create_quiz(quiz: QuizCreate, db: AsyncSession = Depends(get_db)):
 
         for question in quiz.questions:
             new_question = QuizQuestion(
-                **question.dict(exclude={"answers"}), quiz_id=new_quiz.id
+                **question.model_dump(exclude={"answers"}), quiz_id=new_quiz.id
             )
             session.add(new_question)
             await session.commit()
@@ -27,7 +27,7 @@ async def create_quiz(quiz: QuizCreate, db: AsyncSession = Depends(get_db)):
 
             for answer in question.answers:
                 new_answer = QuizQuestionAnswer(
-                    **answer.dict(), question_id=new_question.id
+                    **answer.model_dump(), question_id=new_question.id
                 )
                 session.add(new_answer)
 
@@ -98,7 +98,7 @@ async def update_quiz(
         if not quiz:
             raise HTTPException(status_code=404, detail="Quiz not found")
 
-        update_data = quiz_update.dict(exclude_unset=True)
+        update_data = quiz_update.model_dump(exclude_unset=True)
         for key, value in update_data.items():
             if key == "questions":
                 # Handle updating questions and their answers

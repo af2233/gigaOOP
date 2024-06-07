@@ -12,7 +12,7 @@ router = APIRouter()
 
 @router.post("/", response_model=ThemeRead, status_code=status.HTTP_201_CREATED)
 async def create_theme(theme: ThemeCreate, db: AsyncSession = Depends(get_db)):
-    db_theme = Theme(**theme.dict())
+    db_theme = Theme(**theme.model_dump())
     db.add(db_theme)
     await db.commit()
     await db.refresh(db_theme)
@@ -47,7 +47,7 @@ async def update_theme(
         if db_theme is None:
             raise HTTPException(status_code=404, detail="Theme not found")
 
-        update_data = theme.dict(exclude_unset=True)
+        update_data = theme.model_dump(exclude_unset=True)
         for key, value in update_data.items():
             setattr(db_theme, key, value)
 

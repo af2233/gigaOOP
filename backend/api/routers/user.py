@@ -12,8 +12,8 @@ from core.auth import auth_backend
 
 
 class UserManager(UUIDIDMixin, BaseUserManager[User, uuid.UUID]):
-    reset_password_token_secret = settings.SECRET
-    verification_token_secret = settings.SECRET
+    reset_password_token_secret = settings.SECRET_AUTH
+    verification_token_secret = settings.SECRET_AUTH
 
     async def on_after_register(self, user: User, request: Optional[Request] = None):
         print(f"User {user.email} has registered")
