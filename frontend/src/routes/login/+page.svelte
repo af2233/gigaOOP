@@ -118,12 +118,12 @@
 			<form method="POST" on:input={hideError}>
 				<div class="input-group">
 					<label class="form__label">
-						<p>Password</p>
-						<input name="password" type="password" class="form__input" required>
-					</label>
-					<label class="form__label">
 						<p>Email</p>
 						<input name="email" type="email" class="form__input" value={form?.email ?? ''} required>
+					</label>
+					<label class="form__label">
+						<p>Password</p>
+						<input name="password" type="password" class="form__input" required>
 					</label>
 				</div>
 				<div class="btn-group">
@@ -137,4 +137,3 @@
 		</div>
 	</div>
 </section>
-
