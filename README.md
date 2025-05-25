@@ -1,31 +1,38 @@
 # IT-проект "Образовательная платформа ООП"
 
-<h2>Архитектура проекта:
-<h4><font color="red"> /// Miro ///
-https://miro.com/welcomeonboard/SkR4WjFKdGRJT0pwT1dyMG9vOEgwSWRVOFJpV0ZXWkJJYXpWZm1pMllYaVpybHgzWlJTQVVTQkYzNUVuR1dkN3wzNDU4NzY0NTg1NjQwMjA1MDE1fDI=?share_link_id=998162167732
-</font>
+## Ссылки:
 
-<h2>Цели и задачи:
-<h4><font color="lightblue"> /// Trello ///
-https://trello.com/b/Oj3UHJCU/gigoop
-</font>
+### Архитектура проекта:
 
-<h2>Структура базы данных:
-<h4><font color="pink">/// Figma ///
-https://www.figma.com/file/GPE3nndbkOOPY9NNyKKXWF/gigaOOP-schema?type=whiteboard&node-id=0%3A1&t=kQiOJ1q8unnMvuZU-1
-</font>
+> [Miro]()
+
+### Цели и задачи:
+
+> [Trello](https://trello.com/b/Oj3UHJCU/gigoop) (закрытый доступ)
+
+### Структура базы данных:
+
+> [Figma](https://www.figma.com/board/GPE3nndbkOOPY9NNyKKXWF/gigaOOP-schema?node-id=0-1&t=QtS3mkE6LDU6i4ud-1)
 
 ## Запуск проекта
 ### Запуска сервера backend
-Запуск проекта осуществляется после того, как вы клонировали репозиторий себе на локальную машину. 
+Запуск проекта осуществляется после того, как вы клонировали репозиторий себе на локальную машину.
+
+Создайте файл переменных среды .env:
+| Variable | Value example |
+| ------------- | ------------- |
+| DB_NAME | gigaoop |
+| DB_NAME_TEST | gigaoop_test |
+| SECRET_AUTH | 1234 |
+
 Для запуска backend используется сервер uvicorn.
 Установите виртуальную среду python - venv в корень проекта:
 ```
-python -m venv venv
+python -m venv .venv
 ```
 Затем войдите в venv с помощью команды (Windows):
 ```
-venv/Scripts/activate
+source .venv/Scripts/activate
 ```
 Перейдите в папку бэкенда:
 ```
@@ -34,6 +41,10 @@ cd backend
 Выполните установку зависимостей:
 ```
 pip install -r requirements.txt
+```
+Примените миграции:
+```
+alembic upgrade head
 ```
 Запустите сервер uvicorn:
 ```
