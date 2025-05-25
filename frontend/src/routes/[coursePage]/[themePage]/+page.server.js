@@ -1,13 +1,13 @@
-import { marked } from 'marked';
+import 'dotenv/config';
 import fs from 'fs/promises'; // Используем промисы для асинхронного чтения файлов
 import path from 'path';
-import 'dotenv/config';
+import { marked } from 'marked';
 
 /** @type {import('./$types').PageServerLoad} */
 
 export async function load({ params }) {
     const themeId = params.themePage;
-    const res = await fetch(`${process.env.BASE_URL}/themes/${themeId}`);
+    const res = await fetch(`${process.env.THEMES_URL}/${themeId}`);
 
     if (res.ok) {
         const theme = await res.json();

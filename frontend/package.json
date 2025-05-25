@@ -21,6 +21,7 @@
 	"type": "module",
 	"dependencies": {
 		"dotenv": "^16.5.0",
+		"dotenv-expand": "^12.0.2",
 		"marked": "^12.0.2"
 	}
 }

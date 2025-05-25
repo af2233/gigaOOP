@@ -1,7 +1,6 @@
+import { redirect } from '@sveltejs/kit';
 
 /** @type {import('@sveltejs/kit').Handle} */
-
-import { redirect } from '@sveltejs/kit';
 
 export async function handle({ event, resolve }) {
     const token = event.cookies.get('auth');

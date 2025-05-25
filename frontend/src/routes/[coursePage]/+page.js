@@ -1,12 +1,12 @@
-import { error } from '@sveltejs/kit';
 import 'dotenv/config';
+import { error } from '@sveltejs/kit';
 
 /** @type {import('./$types').PageLoad} */
 
 export async function load({ params, url }) {
     const courseId = Number(params.coursePage);
     const courseTitle = url.searchParams.get('title');
-    const res = await fetch(`${process.env.BASE_URL}/themes/`);
+    const res = await fetch(`${process.env.THEMES_URL}`);
 
     if (res.ok) {
         const themes = await res.json();
