@@ -1,11 +1,12 @@
 import { error } from '@sveltejs/kit';
-import { BASE_URL } from '../../api.js';
+import 'dotenv/config';
 
 /** @type {import('./$types').PageLoad} */
+
 export async function load({ params, url }) {
     const courseId = Number(params.coursePage);
     const courseTitle = url.searchParams.get('title');
-    const res = await fetch(`${BASE_URL}/themes/`);
+    const res = await fetch(`${process.env.BASE_URL}/themes/`);
 
     if (res.ok) {
         const themes = await res.json();
