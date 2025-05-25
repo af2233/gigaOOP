@@ -5,6 +5,7 @@ from sqlalchemy.orm import DeclarativeBase
 
 from core.config import settings
 
+connect_args={"check_same_thread": False}
 engine = create_async_engine(settings.DB_URL)
 async_session_maker = async_sessionmaker(engine, expire_on_commit=False)
 

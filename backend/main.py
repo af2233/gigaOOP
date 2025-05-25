@@ -12,7 +12,7 @@ from db.schemas.user import UserCreate, UserRead, UserUpdate
 
 
 # Logging setup
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 
 # Main app setup
 app = FastAPI(title=settings.PROJECT_NAME,
@@ -79,8 +79,10 @@ app.include_router(
 )
 
 origins = [
-    "http://localhost",
     "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "http://0.0.0.0:5173",
+    "http://frontend:5173",
 ]
 
 app.add_middleware(
