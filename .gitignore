@@ -16,3 +16,4 @@ venv/
 .vs/
 .pytest_cache
 *.db
+*.txt
