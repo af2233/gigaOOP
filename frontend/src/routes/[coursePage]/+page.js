@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import { error } from '@sveltejs/kit';
 
 /** @type {import('./$types').PageLoad} */
@@ -6,7 +5,7 @@ import { error } from '@sveltejs/kit';
 export async function load({ params, url }) {
     const courseId = Number(params.coursePage);
     const courseTitle = url.searchParams.get('title');
-    const res = await fetch(`${process.env.THEMES_URL}`);
+    const res = await fetch('http://localhost:8000/themes');
 
     if (res.ok) {
         const themes = await res.json();

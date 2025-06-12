@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import fs from 'fs/promises'; // Используем промисы для асинхронного чтения файлов
 import path from 'path';
 import { marked } from 'marked';
@@ -7,7 +6,7 @@ import { marked } from 'marked';
 
 export async function load({ params }) {
     const themeId = params.themePage;
-    const res = await fetch(`${process.env.THEMES_URL}/${themeId}`);
+    const res = await fetch(`http://localhost:8000/themes/${themeId}`);
 
     if (res.ok) {
         const theme = await res.json();

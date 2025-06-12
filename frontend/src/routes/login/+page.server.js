@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import { redirect } from '@sveltejs/kit';
 
 /** @type {import('./$types').Actions} */
@@ -15,7 +14,7 @@ export const actions = {
 			password: password
 		};
 
-		const response = await fetch(`${process.env.REGISTER_URL}`, {
+		const response = await fetch('http://localhost:8000/auth/register', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -35,7 +34,7 @@ export const actions = {
 			// @ts-ignore
 			const loginData = new URLSearchParams(user);
 
-			const loginResponse = await fetch(`${process.env.LOGIN_URL}`, {
+			const loginResponse = await fetch('http://localhost:8000/auth/jwt/login', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/x-www-form-urlencoded'
@@ -83,7 +82,7 @@ export const actions = {
 		// @ts-ignore
 		const loginData = new URLSearchParams(user);
 
-		const response = await fetch(`${process.env.LOGIN_URL}`, {
+		const response = await fetch('http://localhost:8000/auth/jwt/login', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded'
