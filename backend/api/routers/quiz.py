@@ -4,13 +4,14 @@ from sqlalchemy.future import select
 
 from db.models.quiz import Quiz, QuizQuestion, QuizQuestionAnswer
 from db.schemas.quiz import QuizCreate, QuizRead, QuizUpdate
-from api.deps import get_db
+from db.session import get_async_session
+
 
 router = APIRouter()
 
 
 @router.post("/", response_model=QuizRead, status_code=status.HTTP_201_CREATED)
-async def create_quiz(quiz: QuizCreate, db: AsyncSession = Depends(get_db)):
+async def create_quiz(quiz: QuizCreate, db: AsyncSession = Depends(get_async_session)):
     new_quiz = Quiz(**quiz.model_dump(exclude={"questions"}))
     async with db as session:
         session.add(new_quiz)
@@ -38,7 +39,7 @@ async def create_quiz(quiz: QuizCreate, db: AsyncSession = Depends(get_db)):
 
 
 @router.get("/{quiz_id}", response_model=QuizRead)
-async def read_quiz(quiz_id: int, db: AsyncSession = Depends(get_db)):
+async def read_quiz(quiz_id: int, db: AsyncSession = Depends(get_async_session)):
     async with db as session:
         result = await session.execute(select(Quiz).where(Quiz.id == quiz_id))
         quiz = result.scalars().first()
@@ -64,10 +65,18 @@ async def read_quiz(quiz_id: int, db: AsyncSession = Depends(get_db)):
 
 @router.get("/", response_model=list[QuizRead])
 async def get_quizzes(
-    skip: int = 0, limit: int = 10, db: AsyncSession = Depends(get_db)
+    skip: int = 0,
+    limit: int = 10,
+    theme_id: int | None = None,
+    db: AsyncSession = Depends(get_async_session),
 ):
     async with db as session:
-        result = await session.execute(select(Quiz).offset(skip).limit(limit))
+        stmt = select(Quiz)
+        if theme_id is not None:
+            stmt = stmt.where(Quiz.theme_id == theme_id)
+        stmt = stmt.offset(skip).limit(limit)
+
+        result = await session.execute(stmt)
         quizzes = result.scalars().all()
 
         for quiz in quizzes:
@@ -90,7 +99,7 @@ async def get_quizzes(
 
 @router.put("/{quiz_id}", response_model=QuizRead)
 async def update_quiz(
-    quiz_id: int, quiz_update: QuizUpdate, db: AsyncSession = Depends(get_db)
+    quiz_id: int, quiz_update: QuizUpdate, db: AsyncSession = Depends(get_async_session)
 ):
     async with db as session:
         result = await session.execute(select(Quiz).where(Quiz.id == quiz_id))
@@ -128,7 +137,7 @@ async def update_quiz(
 
 
 @router.delete("/{quiz_id}", response_model=None)
-async def delete_quiz(quiz_id: int, db: AsyncSession = Depends(get_db)):
+async def delete_quiz(quiz_id: int, db: AsyncSession = Depends(get_async_session)):
     async with db as session:
         result = await session.execute(select(Quiz).where(Quiz.id == quiz_id))
         quiz = result.scalars().first()

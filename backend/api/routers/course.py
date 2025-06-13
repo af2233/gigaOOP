@@ -2,17 +2,16 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 
-
 from db.models.course import Course
 from db.schemas.course import CourseCreate, CourseUpdate, CourseRead
-from api.deps import get_db
+from db.session import get_async_session
 
 
 router = APIRouter()
 
 
 @router.post("/", response_model=CourseRead)
-async def create_course(course: CourseCreate, db: AsyncSession = Depends(get_db)):
+async def create_course(course: CourseCreate, db: AsyncSession = Depends(get_async_session)):
     db_course = Course(**course.model_dump())
     db.add(db_course)
     await db.commit()
@@ -21,7 +20,7 @@ async def create_course(course: CourseCreate, db: AsyncSession = Depends(get_db)
 
 
 @router.get("/{course_id}", response_model=CourseRead)
-async def read_course(course_id: int, db: AsyncSession = Depends(get_db)):
+async def read_course(course_id: int, db: AsyncSession = Depends(get_async_session)):
     course = await db.get(Course, course_id)
     if not course:
         raise HTTPException(status_code=404, detail="Course not found")
@@ -30,7 +29,7 @@ async def read_course(course_id: int, db: AsyncSession = Depends(get_db)):
 
 @router.get("/", response_model=list[CourseRead])
 async def get_courses(
-    skip: int = 0, limit: int = 10, db: AsyncSession = Depends(get_db)
+    skip: int = 0, limit: int = 10, db: AsyncSession = Depends(get_async_session)
 ):
     async with db as session:
         result = await session.execute(select(Course).offset(skip).limit(limit))
@@ -40,7 +39,7 @@ async def get_courses(
 
 @router.put("/{course_id}", response_model=CourseRead)
 async def update_course(
-    course_id: int, course: CourseUpdate, db: AsyncSession = Depends(get_db)
+    course_id: int, course: CourseUpdate, db: AsyncSession = Depends(get_async_session)
 ):
     async with db as session:
         result = await session.execute(select(Course).where(Course.id == course_id))
@@ -58,7 +57,7 @@ async def update_course(
 
 
 @router.delete("/{course_id}", response_model=None)
-async def delete_course(course_id: int, db: AsyncSession = Depends(get_db)):
+async def delete_course(course_id: int, db: AsyncSession = Depends(get_async_session)):
     async with db as session:
         result = await session.execute(select(Course).where(Course.id == course_id))
         db_course = result.scalars().first()

@@ -2,16 +2,16 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 
-
 from db.models.theme import Theme
 from db.schemas.theme import ThemeCreate, ThemeUpdate, ThemeRead
-from api.deps import get_db
+from db.session import get_async_session
+
 
 router = APIRouter()
 
 
 @router.post("/", response_model=ThemeRead, status_code=status.HTTP_201_CREATED)
-async def create_theme(theme: ThemeCreate, db: AsyncSession = Depends(get_db)):
+async def create_theme(theme: ThemeCreate, db: AsyncSession = Depends(get_async_session)):
     db_theme = Theme(**theme.model_dump())
     db.add(db_theme)
     await db.commit()
@@ -20,7 +20,7 @@ async def create_theme(theme: ThemeCreate, db: AsyncSession = Depends(get_db)):
 
 
 @router.get("/{theme_id}", response_model=ThemeRead)
-async def read_theme(theme_id: int, db: AsyncSession = Depends(get_db)):
+async def read_theme(theme_id: int, db: AsyncSession = Depends(get_async_session)):
     theme = await db.get(Theme, theme_id)
     if not theme:
         raise HTTPException(status_code=404, detail="Theme not found")
@@ -29,7 +29,7 @@ async def read_theme(theme_id: int, db: AsyncSession = Depends(get_db)):
 
 @router.get("/", response_model=list[ThemeRead])
 async def get_themes(
-    skip: int = 0, limit: int = 10, db: AsyncSession = Depends(get_db)
+    skip: int = 0, limit: int = 10, db: AsyncSession = Depends(get_async_session)
 ):
     async with db as session:
         result = await session.execute(select(Theme).offset(skip).limit(limit))
@@ -39,7 +39,7 @@ async def get_themes(
 
 @router.put("/{theme_id}", response_model=ThemeRead)
 async def update_theme(
-    theme_id: int, theme: ThemeUpdate, db: AsyncSession = Depends(get_db)
+    theme_id: int, theme: ThemeUpdate, db: AsyncSession = Depends(get_async_session)
 ):
     async with db as session:
         result = await session.execute(select(Theme).where(Theme.id == theme_id))
@@ -58,7 +58,7 @@ async def update_theme(
 
 
 @router.delete("/{theme_id}", response_model=None)
-async def delete_theme(theme_id: int, db: AsyncSession = Depends(get_db)):
+async def delete_theme(theme_id: int, db: AsyncSession = Depends(get_async_session)):
     async with db as session:
         result = await session.execute(select(Theme).where(Theme.id == theme_id))
         db_theme = result.scalars().first()
