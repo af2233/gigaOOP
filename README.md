@@ -49,6 +49,11 @@ pip install -r requirements.txt
 alembic upgrade head
 ```
 
+Заполните базу данных:
+```
+python -m db.loaddata
+```
+
 Запустите сервер uvicorn:
 ```
 uvicorn main:app

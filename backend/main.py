@@ -2,7 +2,7 @@ import uuid
 import logging
 import uvicorn
 
-from fastapi import Depends, FastAPI
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from api.routers import course, quiz, theme, user
@@ -21,7 +21,7 @@ app = FastAPI(title=settings.PROJECT_NAME,
               version=settings.PROJECT_VERSION,
               license_info=settings.LICENSE_INFO,
               openapi_tags=settings.TAGS_METADATA,
-              docs_url=None,
+              docs_url="/docs",
               redoc_url=None,
               )
 
