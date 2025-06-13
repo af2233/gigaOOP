@@ -1,46 +1,45 @@
-import fs from 'fs/promises'; // Используем промисы для асинхронного чтения файлов
-import path from 'path';
 import { marked } from 'marked';
+import fs from 'fs/promises';
+import path from 'path';
+import { error } from '@sveltejs/kit';
+
 
 /** @type {import('./$types').PageServerLoad} */
 
 export async function load({ params }) {
-    const themeId = params.themePage;
-    const res = await fetch(`http://localhost:8000/themes/${themeId}`);
+	const themeId = params.themePage;
 
-    if (res.ok) {
-        const theme = await res.json();
-        const filePath = path.join(process.cwd(), 'static', 'chapters', theme.content + ".md"); // Формируем правильный путь к файлу
+	const themeRes = await fetch(`http://localhost:8000/themes/${themeId}`);
+	if (!themeRes.ok) {
+		throw error(themeRes.status, 'Failed to fetch theme');
+	}
+	const theme = await themeRes.json();
 
-        try {
-            const data = await fs.readFile(filePath, 'utf8'); // Асинхронное чтение файла
-            const htmlContent = marked(data); // Конвертируем Markdown в HTML
-            
-            const quizPath = path.join(process.cwd(), `/static/quizzes/python/ch${themeId}.json`);
-            const quizData = JSON.parse(await fs.readFile(quizPath, 'utf8'));
+	const mdPath = path.join(process.cwd(), 'static', 'chapters', `${theme.content}.md`);
+	let htmlContent;
 
-            return {
-                htmlContent,
-                themeTitle: theme.title,
-                themeId,
-                quizData
-            };
-        } catch (err) {
-            console.log(`File not found: ${filePath}`, err);
-            return {
-                htmlContent: 'File not found',
-                themeTitle: theme.title,
-                themeId,
-                quizData: null
-            };
-        }
-    } else {
-        console.log('Fetch error');
-        return {
-            htmlContent: 'Error fetching theme',
-            themeTitle: 'Error',
-            themeId,
-            quizData: null
-        };
-    }
+	try {
+		const markdown = await fs.readFile(mdPath, 'utf8');
+		htmlContent = marked(markdown);
+	} catch (err) {
+		console.error(`File not found: ${mdPath}`, err);
+		htmlContent = 'Файл не найден';
+	}
+
+	const quizRes = await fetch(`http://localhost:8000/quizzes?theme_id=${themeId}`);
+	let quizData = null;
+
+	if (quizRes.ok) {
+		const quizzes = await quizRes.json();
+		quizData = quizzes.length > 0 ? quizzes[0] : null;
+	} else {
+		console.warn(`No quiz found for theme ${themeId}`);
+	}
+
+	return {
+		htmlContent,
+		themeTitle: theme.title,
+		themeId,
+		quizData
+	};
 }
