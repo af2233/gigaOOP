@@ -1,0 +1,52 @@
+[
+    {
+        "title": "Основы классов и объектов в Python",
+        "description": "python\\ch1",
+        "theme_id": 1
+    },
+    {
+        "title": "Методы и инкапсуляция в объектно-ориентированном программировании",
+        "description": "python\\ch2",
+        "theme_id": 2
+    },
+    {
+        "title": "Наследование и полиморфизм",
+        "description": "python\\ch3",
+        "theme_id": 3
+    },
+    {
+        "title": "Абстракция и интерфейсы",
+        "description": "python\\ch4",
+        "theme_id": 4
+    },
+    {
+        "title": "Магические методы в Python",
+        "description": "python\\ch5",
+        "theme_id": 5
+    },
+    {
+        "title": "Композиция и агрегация в ООП",
+        "description": "python\\ch6",
+        "theme_id": 6
+    },
+    {
+        "title": "Декораторы классов в Python",
+        "description": "python\\ch7",
+        "theme_id": 7
+    },
+    {
+        "title": "Пространства имен и области видимости в Python",
+        "description": "python\\ch8",
+        "theme_id": 8
+    },
+    {
+        "title": "Исключения в ООП",
+        "description": "python\\ch9",
+        "theme_id": 9
+    },
+    {
+        "title": "Дополнительные практические темы в ООП",
+        "description": "python\\ch10",
+        "theme_id": 10
+    }
+]

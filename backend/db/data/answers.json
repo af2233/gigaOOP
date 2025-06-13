@@ -1,0 +1,602 @@
+[
+    {
+        "answer_text": "Экземпляр объекта.",
+        "is_correct": false,
+        "question_id": 1
+    },
+    {
+        "answer_text": "Шаблон для создания объектов.",
+        "is_correct": true,
+        "question_id": 1
+    },
+    {
+        "answer_text": "Метод объекта.",
+        "is_correct": false,
+        "question_id": 1
+    },
+    {
+        "answer_text": "Атрибут объекта.",
+        "is_correct": false,
+        "question_id": 1
+    },
+    {
+        "answer_text": "Вызвать имя класса как функции.",
+        "is_correct": true,
+        "question_id": 2
+    },
+    {
+        "answer_text": "Использовать оператор new.",
+        "is_correct": false,
+        "question_id": 2
+    },
+    {
+        "answer_text": "Использовать оператор create.",
+        "is_correct": false,
+        "question_id": 2
+    },
+    {
+        "answer_text": "Использовать ключевое слово instance.",
+        "is_correct": false,
+        "question_id": 2
+    },
+    {
+        "answer_text": "Атрибуты класса принадлежат всем объектам класса, а атрибуты объекта — только конкретному объекту.",
+        "is_correct": true,
+        "question_id": 3
+    },
+    {
+        "answer_text": "Атрибуты класса не могут быть изменены, а атрибуты объекта могут.",
+        "is_correct": false,
+        "question_id": 3
+    },
+    {
+        "answer_text": "Атрибуты класса определяются в методе __init__, а атрибуты объекта — в теле класса.",
+        "is_correct": false,
+        "question_id": 3
+    },
+    {
+        "answer_text": " Атрибуты класса и объекта не отличаются.",
+        "is_correct": false,
+        "question_id": 3
+    },
+    {
+        "answer_text": "Публичные атрибуты не имеют спецификации доступа, защищенные атрибуты обозначаются одним подчеркиванием, приватные атрибуты обозначаются двумя подчеркиваниями.",
+        "is_correct": true,
+        "question_id": 4
+    },
+    {
+        "answer_text": "Публичные атрибуты обозначаются одним подчеркиванием, защищенные атрибуты обозначаются двумя подчеркиваниями, приватные атрибуты не имеют спецификации доступа.",
+        "is_correct": false,
+        "question_id": 4
+    },
+    {
+        "answer_text": "Публичные атрибуты обозначаются двумя подчеркиваниями, защищенные атрибуты обозначаются одним подчеркиванием, приватные атрибуты не имеют спецификации доступа.",
+        "is_correct": false,
+        "question_id": 4
+    },
+    {
+        "answer_text": "Публичные, защищенные и приватные атрибуты обозначаются одинаково без использования подчеркиваний.",
+        "is_correct": false,
+        "question_id": 4
+    },
+    {
+        "answer_text": "Переменные, хранящие данные об объектах.",
+        "is_correct": false,
+        "question_id": 5
+    },
+    {
+        "answer_text": "Функции, определенные внутри класса для работы с атрибутами объектов.",
+        "is_correct": true,
+        "question_id": 5
+    },
+    {
+        "answer_text": "Типы данных, используемые для создания объектов.",
+        "is_correct": false,
+        "question_id": 5
+    },
+    {
+        "answer_text": "Структуры данных, хранящие информацию о классе.",
+        "is_correct": false,
+        "question_id": 5
+    },
+    {
+        "answer_text": "Методы экземпляра имеют доступ к атрибутам экземпляра, статические методы не имеют такого доступа.",
+        "is_correct": true,
+        "question_id": 6
+    },
+    {
+        "answer_text": "Методы экземпляра не имеют доступа к атрибутам экземпляра, статические методы имеют такой доступ.",
+        "is_correct": false,
+        "question_id": 6
+    },
+    {
+        "answer_text": "Методы экземпляра и статические методы имеют одинаковый доступ к атрибутам экземпляра.",
+        "is_correct": false,
+        "question_id": 6
+    },
+    {
+        "answer_text": "Методы экземпляра и статические методы не могут быть определены в одном классе.",
+        "is_correct": false,
+        "question_id": 6
+    },
+    {
+        "answer_text": "Указать базовый класс в круглых скобках после имени нового класса.",
+        "is_correct": true,
+        "question_id": 7
+    },
+    {
+        "answer_text": "Указать базовый класс в фигурных скобках после имени нового класса.",
+        "is_correct": false,
+        "question_id": 7
+    },
+    {
+        "answer_text": "Указать базовый класс в квадратных скобках после имени нового класса.",
+        "is_correct": false,
+        "question_id": 7
+    },
+    {
+        "answer_text": "Использовать ключевое слово inherit после имени класса.",
+        "is_correct": false,
+        "question_id": 7
+    },
+    {
+        "answer_text": "Вызывает родительский метод в дочернем классе.",
+        "is_correct": true,
+        "question_id": 8
+    },
+    {
+        "answer_text": "Создает экземпляр родительского класса.",
+        "is_correct": false,
+        "question_id": 8
+    },
+    {
+        "answer_text": "Обращается к атрибутам экземпляра класса.",
+        "is_correct": false,
+        "question_id": 8
+    },
+    {
+        "answer_text": "Проверяет наследование класса.",
+        "is_correct": false,
+        "question_id": 8
+    },
+    {
+        "answer_text": "Возможность одного класса наследовать от нескольких базовых классов.",
+        "is_correct": false,
+        "question_id": 9
+    },
+    {
+        "answer_text": "Процесс создания нескольких экземпляров класса.",
+        "is_correct": true,
+        "question_id": 9
+    },
+    {
+        "answer_text": "Возможность одного класса содержать несколько атрибутов.",
+        "is_correct": false,
+        "question_id": 9
+    },
+    {
+        "answer_text": "Процесс создания дочернего класса.",
+        "is_correct": false,
+        "question_id": 9
+    },
+    {
+        "answer_text": "Класс, который может быть инстанцирован и содержит только реализованные методы.",
+        "is_correct": false,
+        "question_id": 10
+    },
+    {
+        "answer_text": "Класс, который не может быть инстанцирован и содержит только абстрактные методы.",
+        "is_correct": false,
+        "question_id": 10
+    },
+    {
+        "answer_text": "Класс, который может быть инстанцирован и содержит абстрактные методы.",
+        "is_correct": false,
+        "question_id": 10
+    },
+    {
+        "answer_text": "Класс, который не может быть инстанцирован и содержит как реализованные, так и абстрактные методы.",
+        "is_correct": true,
+        "question_id": 10
+    },
+    {
+        "answer_text": "Позволяют создавать экземпляры класса.",
+        "is_correct": false,
+        "question_id": 11
+    },
+    {
+        "answer_text": "Определяют методы без их реализации.",
+        "is_correct": true,
+        "question_id": 11
+    },
+    {
+        "answer_text": "Ограничивают доступ к атрибутам класса.",
+        "is_correct": false,
+        "question_id": 11
+    },
+    {
+        "answer_text": "Используются для создания статических методов.",
+        "is_correct": false,
+        "question_id": 11
+    },
+    {
+        "answer_text": "Это класс с реализованными методами.",
+        "is_correct": false,
+        "question_id": 12
+    },
+    {
+        "answer_text": "Это класс, который нельзя наследовать.",
+        "is_correct": false,
+        "question_id": 12
+    },
+    {
+        "answer_text": "Это набор методов без их реализации.",
+        "is_correct": true,
+        "question_id": 12
+    },
+    {
+        "answer_text": "Это набор атрибутов без методов.",
+        "is_correct": false,
+        "question_id": 12
+    },
+    {
+        "answer_text": "__repr__(self)",
+        "is_correct": false,
+        "question_id": 13
+    },
+    {
+        "answer_text": "__init__(self, ...)",
+        "is_correct": false,
+        "question_id": 13
+    },
+    {
+        "answer_text": "__del__(self)",
+        "is_correct": false,
+        "question_id": 13
+    },
+    {
+        "answer_text": "__str__(self)",
+        "is_correct": true,
+        "question_id": 13
+    },
+    {
+        "answer_text": "__eq__",
+        "is_correct": true,
+        "question_id": 14
+    },
+    {
+        "answer_text": "__lt__",
+        "is_correct": false,
+        "question_id": 14
+    },
+    {
+        "answer_text": "__add__",
+        "is_correct": false,
+        "question_id": 14
+    },
+    {
+        "answer_text": "__del__",
+        "is_correct": false,
+        "question_id": 14
+    },
+    {
+        "answer_text": "__size__",
+        "is_correct": false,
+        "question_id": 15
+    },
+    {
+        "answer_text": "__length__",
+        "is_correct": false,
+        "question_id": 15
+    },
+    {
+        "answer_text": "__len__",
+        "is_correct": true,
+        "question_id": 15
+    },
+    {
+        "answer_text": "__count__",
+        "is_correct": false,
+        "question_id": 15
+    },
+    {
+        "answer_text": "Связь имеет (владеет).",
+        "is_correct": false,
+        "question_id": 16
+    },
+    {
+        "answer_text": "Связь использует.",
+        "is_correct": false,
+        "question_id": 16
+    },
+    {
+        "answer_text": "Связь связана с.",
+        "is_correct": false,
+        "question_id": 16
+    },
+    {
+        "answer_text": "Связь часть-целое (содержит).",
+        "is_correct": true,
+        "question_id": 16
+    },
+    {
+        "answer_text": "Автомобиль и его водитель.",
+        "is_correct": true,
+        "question_id": 17
+    },
+    {
+        "answer_text": "Человек и его паспорт.",
+        "is_correct": false,
+        "question_id": 17
+    },
+    {
+        "answer_text": "Учебное заведение и его студенты.",
+        "is_correct": false,
+        "question_id": 17
+    },
+    {
+        "answer_text": "Телефон и его SIM-карта.",
+        "is_correct": false,
+        "question_id": 17
+    },
+    {
+        "answer_text": "Книга и ее страницы.",
+        "is_correct": false,
+        "question_id": 18
+    },
+    {
+        "answer_text": "Пицца и ее ингредиенты.",
+        "is_correct": false,
+        "question_id": 18
+    },
+    {
+        "answer_text": "Школа и ее ученики.",
+        "is_correct": true,
+        "question_id": 18
+    },
+    {
+        "answer_text": "Машина и ее колеса.",
+        "is_correct": false,
+        "question_id": 18
+    },
+    {
+        "answer_text": "@classmethod",
+        "is_correct": false,
+        "question_id": 19
+    },
+    {
+        "answer_text": "@staticmethod",
+        "is_correct": true,
+        "question_id": 19
+    },
+    {
+        "answer_text": "@property",
+        "is_correct": false,
+        "question_id": 19
+    },
+    {
+        "answer_text": "@abstractmethod",
+        "is_correct": false,
+        "question_id": 19
+    },
+    {
+        "answer_text": "Определяя метод с декоратором @property и изменяя атрибут напрямую.",
+        "is_correct": false,
+        "question_id": 20
+    },
+    {
+        "answer_text": "Определяя метод с декоратором @property и используя @property.setter для контроля за изменением атрибута.",
+        "is_correct": true,
+        "question_id": 20
+    },
+    {
+        "answer_text": "Используя только декоратор @property без дополнительных методов.",
+        "is_correct": false,
+        "question_id": 20
+    },
+    {
+        "answer_text": "Используя декоратор @property вместе с @classmethod.",
+        "is_correct": false,
+        "question_id": 20
+    },
+    {
+        "answer_text": "Определяет метод, который может изменять состояние класса.",
+        "is_correct": false,
+        "question_id": 21
+    },
+    {
+        "answer_text": "Определяет метод, который получает экземпляр класса в качестве первого аргумента.",
+        "is_correct": false,
+        "question_id": 21
+    },
+    {
+        "answer_text": "Определяет метод, который можно использовать как атрибут.",
+        "is_correct": true,
+        "question_id": 21
+    },
+    {
+        "answer_text": "Определяет метод, который не получает ни экземпляр, ни класс в качестве первого аргумента.",
+        "is_correct": false,
+        "question_id": 21
+    },
+    {
+        "answer_text": "Глобальная область видимости.",
+        "is_correct": false,
+        "question_id": 22
+    },
+    {
+        "answer_text": "Локальная область видимости.",
+        "is_correct": true,
+        "question_id": 22
+    },
+    {
+        "answer_text": "Область видимости классов.",
+        "is_correct": false,
+        "question_id": 22
+    },
+    {
+        "answer_text": "Пространство имен встроенных функций.",
+        "is_correct": false,
+        "question_id": 22
+    },
+    {
+        "answer_text": "Только внутри функции.",
+        "is_correct": false,
+        "question_id": 23
+    },
+    {
+        "answer_text": "Во всем модуле.",
+        "is_correct": true,
+        "question_id": 23
+    },
+    {
+        "answer_text": "Только внутри класса.",
+        "is_correct": false,
+        "question_id": 23
+    },
+    {
+        "answer_text": "Только в пространстве имен встроенных функций.",
+        "is_correct": false,
+        "question_id": 23
+    },
+    {
+        "answer_text": "Переменные и функции, объявленные внутри функции.",
+        "is_correct": false,
+        "question_id": 24
+    },
+    {
+        "answer_text": "Переменные и функции, объявленные на уровне модуля.",
+        "is_correct": false,
+        "question_id": 24
+    },
+    {
+        "answer_text": "Переменные и функции, объявленные внутри класса.",
+        "is_correct": false,
+        "question_id": 24
+    },
+    {
+        "answer_text": "Функции и константы, доступные во всех областях видимости.",
+        "is_correct": true,
+        "question_id": 24
+    },
+    {
+        "answer_text": "Используя блок if внутри метода.",
+        "is_correct": false,
+        "question_id": 25
+    },
+    {
+        "answer_text": "Используя блок try вне класса.",
+        "is_correct": false,
+        "question_id": 25
+    },
+    {
+        "answer_text": "Используя блок try внутри метода или вне класса, где вызывается метод.",
+        "is_correct": true,
+        "question_id": 25
+    },
+    {
+        "answer_text": "Используя ключевое слово exception внутри метода.",
+        "is_correct": false,
+        "question_id": 25
+    },
+    {
+        "answer_text": "Используя функцию raise.",
+        "is_correct": false,
+        "question_id": 26
+    },
+    {
+        "answer_text": "Создав класс, наследующий от Exception.",
+        "is_correct": false,
+        "question_id": 26
+    },
+    {
+        "answer_text": "Используя оператор new.",
+        "is_correct": false,
+        "question_id": 26
+    },
+    {
+        "answer_text": "Используя ключевое слово exception.",
+        "is_correct": true,
+        "question_id": 26
+    },
+    {
+        "answer_text": "Он определяет код, который будет выполнен, если не возникнет исключение.",
+        "is_correct": false,
+        "question_id": 27
+    },
+    {
+        "answer_text": "Он определяет код, который будет выполнен, если возникнет исключение.",
+        "is_correct": false,
+        "question_id": 27
+    },
+    {
+        "answer_text": "Он определяет код, который будет выполнен в любом случае, независимо от того, возникло исключение или нет.",
+        "is_correct": true,
+        "question_id": 27
+    },
+    {
+        "answer_text": "Он определяет код, который будет выполнен только после обработки всех исключений.",
+        "is_correct": false,
+        "question_id": 27
+    },
+    {
+        "answer_text": "Он позволяет создавать объекты различных типов через общий интерфейс.",
+        "is_correct": false,
+        "question_id": 28
+    },
+    {
+        "answer_text": "Он гарантирует, что у класса есть только один экземпляр.",
+        "is_correct": true,
+        "question_id": 28
+    },
+    {
+        "answer_text": "Он разделяет интерфейсы на более мелкие и специализированные.",
+        "is_correct": false,
+        "question_id": 28
+    },
+    {
+        "answer_text": "Он инвертирует зависимости между классами.",
+        "is_correct": false,
+        "question_id": 28
+    },
+    {
+        "answer_text": "Процесс создания новых объектов.",
+        "is_correct": false,
+        "question_id": 29
+    },
+    {
+        "answer_text": "Процесс преобразования объектов в формат, который можно сохранить или передать.",
+        "is_correct": true,
+        "question_id": 29
+    },
+    {
+        "answer_text": "Процесс изменения структуры класса.",
+        "is_correct": false,
+        "question_id": 29
+    },
+    {
+        "answer_text": "Процесс удаления объектов.",
+        "is_correct": false,
+        "question_id": 29
+    },
+    {
+        "answer_text": "Используя ключевое слово static перед объявлением переменной.",
+        "is_correct": false,
+        "question_id": 30
+    },
+    {
+        "answer_text": "Используя функцию type() для определения типа переменной во время выполнения.",
+        "is_correct": false,
+        "question_id": 30
+    },
+    {
+        "answer_text": "Используя аннотации типов в объявлении функций и методов.",
+        "is_correct": true,
+        "question_id": 30
+    },
+    {
+        "answer_text": "Используя классы для создания новых типов данных.",
+        "is_correct": false,
+        "question_id": 30
+    }
+]
